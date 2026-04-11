@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import '../../../../data/mock/mock_stations.dart';
 import '../../../../models/station.dart';
 import '../../../theme/app_theme.dart';
+import '../../../states/subscription_state.dart';
 import 'station_detail_sheet.dart';
 
 class MapView extends StatefulWidget {
-  const MapView({super.key});
+  final SubscriptionState subscriptionState;
+  const MapView({super.key, required this.subscriptionState});
 
   @override
   State<MapView> createState() => _MapViewState();
@@ -222,6 +224,7 @@ class _MapViewState extends State<MapView> with SingleTickerProviderStateMixin {
               child: StationDetailSheet(
                 station: _selectedStation!,
                 onClose: _closeStation,
+                subscriptionState: widget.subscriptionState,
               ),
             ),
           ),

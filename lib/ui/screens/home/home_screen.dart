@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../theme/app_theme.dart';
+import '../../states/subscription_state.dart';
+import '../subscription/subscriptions_screen.dart';
 import 'widgets/map_view.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 2;
+  final SubscriptionState _subscriptionState = SubscriptionState();
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           const _PlaceholderTab(icon: Icons.person_outline, label: 'My Profile'),
           const _PlaceholderTab(icon: Icons.route, label: 'My Journeys'),
-          const MapView(),
-          const _PlaceholderTab(icon: Icons.euro, label: 'Subscriptions'),
+          MapView(subscriptionState: _subscriptionState),
+          SubscriptionsScreen(subscriptionState: _subscriptionState),
           const _PlaceholderTab(icon: Icons.help_outline, label: 'Need Help'),
         ],
       ),

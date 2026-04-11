@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import '../../../../models/bike.dart';
 import '../../../../models/station.dart';
 import '../../../theme/app_theme.dart';
+import '../../../states/subscription_state.dart';
 import 'bike_tile.dart';
 import 'swipe_to_unlock.dart';
 
 class StationDetailSheet extends StatefulWidget {
   final Station station;
   final VoidCallback onClose;
-  const StationDetailSheet({super.key, required this.station, required this.onClose});
+  final SubscriptionState subscriptionState;
+  const StationDetailSheet({super.key, required this.station, required this.onClose, required this.subscriptionState});
 
   @override
   State<StationDetailSheet> createState() => _StationDetailSheetState();
@@ -109,7 +111,11 @@ class _StationDetailSheetState extends State<StationDetailSheet> {
                   top: false,
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
-                    child: SwipeToRent(key: ValueKey(_selectedBike!.id), bike: _selectedBike!),
+                    child: SwipeToRent(
+                      key: ValueKey(_selectedBike!.id),
+                      bike: _selectedBike!,
+                      subscriptionState: widget.subscriptionState,
+                    ),
                   ),
                 ),
             ],

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import '../../../../models/bike.dart';
 import '../../../theme/app_theme.dart';
+import '../../../states/subscription_state.dart';
+import '../../subscription/subscriptions_screen.dart';
+import '../../subscription/confirmation_screen.dart';
 
 class SwipeToRent extends StatefulWidget {
   final Bike bike;
-  const SwipeToRent({super.key, required this.bike});
+  final SubscriptionState subscriptionState;
+  const SwipeToRent({super.key, required this.bike, required this.subscriptionState});
 
   @override
   State<SwipeToRent> createState() => _SwipeToRentState();
@@ -181,15 +185,36 @@ class _SwipeToRentState extends State<SwipeToRent>
                   onHorizontalDragEnd: (details) {
                     if (_rented) return;
                     if (_dragPosition > maxDrag * 0.8) {
+                      // Check subscription before completing the rental
+                      if (!widget.subscriptionState.hasActiveSubscription) {
+                        _animateReset();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => SubscriptionsScreen(
+                              subscriptionState: widget.subscriptionState,
+                              onSubscribed: () {
+                                // After subscribing, user returns to map
+                              },
+                            ),
+                          ),
+                        );
+                        return;
+                      }
                       setState(() {
                         _dragPosition = maxDrag;
                         _rented = true;
                       });
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text('${widget.bike.name} rented! (Demo)'),
-                          behavior: SnackBarBehavior.floating,
-                          backgroundColor: AppTheme.green,
+                      // Navigate to confirmation screen
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => ConfirmationScreen(
+                            plan: widget.subscriptionState.activeSubscription!.plan,
+                            onFinish: () {
+                              Navigator.of(context).popUntil(
+                                (route) => route.isFirst,
+                              );
+                            },
+                          ),
                         ),
                       );
                       Future.delayed(const Duration(seconds: 3), () {
