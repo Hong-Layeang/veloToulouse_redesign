@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class ActiveRide {
@@ -16,6 +18,7 @@ class ActiveRide {
 
 class RideState extends ChangeNotifier {
   ActiveRide? _currentRide;
+  Timer? _ticker;
 
   ActiveRide? get currentRide => _currentRide;
   bool get hasActiveRide => _currentRide != null;
@@ -28,12 +31,14 @@ class RideState extends ChangeNotifier {
       stationId: stationId,
       startTime: DateTime.now(),
     );
+    _startTicker();
     notifyListeners();
   }
 
   // End the current ride
   void endRide() {
     _currentRide = null;
+    _stopTicker();
     notifyListeners();
   }
 
@@ -44,5 +49,24 @@ class RideState extends ChangeNotifier {
     final minutes = duration.inMinutes;
     final seconds = duration.inSeconds % 60;
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
+  }
+
+  void _startTicker() {
+    _ticker?.cancel();
+    _ticker = Timer.periodic(const Duration(seconds: 1), (_) {
+      if (_currentRide == null) return;
+      notifyListeners();
+    });
+  }
+
+  void _stopTicker() {
+    _ticker?.cancel();
+    _ticker = null;
+  }
+
+  @override
+  void dispose() {
+    _stopTicker();
+    super.dispose();
   }
 }
