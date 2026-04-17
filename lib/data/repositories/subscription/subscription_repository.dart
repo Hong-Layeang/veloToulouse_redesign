@@ -1,4 +1,4 @@
-import 'package:velo_toulouse/models/subscription.dart';
+import 'package:velo_toulouse/model/subscription.dart';
 
 abstract class SubscriptionRepository {
   Future<String?> fetchActiveSubscriptionId();
