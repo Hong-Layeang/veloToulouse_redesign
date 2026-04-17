@@ -1,4 +1,4 @@
-import 'package:velo_toulouse/models/bike.dart';
+import 'package:velo_toulouse/model/bike.dart';
 
 class BikeSlot {
   final String id;
