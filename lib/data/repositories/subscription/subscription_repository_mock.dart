@@ -1,5 +1,5 @@
 import 'package:velo_toulouse/data/repositories/subscription/subscription_repository.dart';
-import 'package:velo_toulouse/models/subscription/subscription.dart';
+import 'package:velo_toulouse/models/subscription.dart';
 
 class SubscriptionRepositoryMock implements SubscriptionRepository {
   String? _activeSubscriptionId;

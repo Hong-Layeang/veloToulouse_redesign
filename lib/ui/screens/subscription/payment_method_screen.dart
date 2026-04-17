@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:velo_toulouse/models/subscription/subscription.dart';
+import 'package:velo_toulouse/models/subscription.dart';
 import '../../theme/app_theme.dart';
 import '../../states/subscription_state.dart';
 import 'confirmation_screen.dart';

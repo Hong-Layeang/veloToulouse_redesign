@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/station/station.dart';
+import '../../../models/station.dart';
 import 'bike_booking_screen.dart';
 import '../../theme/app_theme.dart';
 

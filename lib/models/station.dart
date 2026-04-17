@@ -1,5 +1,5 @@
 
-import 'package:velo_toulouse/models/bike_slot/bike_slot.dart';
+import 'package:velo_toulouse/models/bike_slot.dart';
 
 class Station {
   final String id;

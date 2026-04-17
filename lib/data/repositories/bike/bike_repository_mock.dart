@@ -1,6 +1,6 @@
 import 'package:velo_toulouse/data/repositories/bike/bike_repository.dart';
-import 'package:velo_toulouse/models/bike/bike.dart';
-import 'package:velo_toulouse/models/bike_slot/bike_slot.dart';
+import 'package:velo_toulouse/models/bike.dart';
+import 'package:velo_toulouse/models/bike_slot.dart';
 
 class BikeRepositoryMock implements BikeRepository {
   final List<Bike> _bikes = [];

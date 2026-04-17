@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:velo_toulouse/models/subscription/subscription.dart';
+import 'package:velo_toulouse/models/subscription.dart';
 import '../../states/subscription_state.dart';
 import '../../theme/app_theme.dart';
 import 'payment_method_screen.dart';

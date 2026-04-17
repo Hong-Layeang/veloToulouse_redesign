@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:velo_toulouse/ui/screens/home/widgets/map_view.dart';
 import '../../../data/repositories/station/station_repository_mock.dart';
-import '../../../models/station/station.dart';
+import '../../../models/station.dart';
 import '../../states/subscription_state.dart';
 import '../subscription/subscriptions_screen.dart';
 

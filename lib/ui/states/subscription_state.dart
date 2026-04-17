@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:velo_toulouse/models/subscription/subscription.dart';
+import 'package:velo_toulouse/models/subscription.dart';
 
 class ActiveSubscription {
   final Subscription plan;

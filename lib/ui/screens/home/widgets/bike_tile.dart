@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../models/bike/bike.dart';
+import '../../../../models/bike.dart';
 import '../../../theme/app_theme.dart';
 
 class BikeTile extends StatelessWidget {

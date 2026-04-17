@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../models/bike/bike.dart';
+import '../../../../models/bike.dart';
 import '../../../theme/app_theme.dart';
 import '../../../states/subscription_state.dart';
 import '../../subscription/subscriptions_screen.dart';

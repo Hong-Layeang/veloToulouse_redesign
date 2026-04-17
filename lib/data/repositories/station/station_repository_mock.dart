@@ -1,6 +1,6 @@
 import 'package:velo_toulouse/data/repositories/station/station_repository.dart';
-import 'package:velo_toulouse/models/bike_slot/bike_slot.dart';
-import 'package:velo_toulouse/models/station/station.dart';
+import 'package:velo_toulouse/models/bike_slot.dart';
+import 'package:velo_toulouse/models/station.dart';
 
 class StationRepositoryMock implements StationRepository {
   late final List<Station> _stations;
