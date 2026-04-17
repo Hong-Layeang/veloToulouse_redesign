@@ -1,4 +1,4 @@
-import 'package:velo_toulouse/models/station.dart';
+import 'package:velo_toulouse/model/station.dart';
 
 abstract class StationRepository {
   Future<List<Station>> fetchStations();

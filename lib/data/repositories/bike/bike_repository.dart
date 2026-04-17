@@ -1,5 +1,5 @@
-import 'package:velo_toulouse/models/bike.dart';
-import 'package:velo_toulouse/models/bike_slot.dart';
+import 'package:velo_toulouse/model/bike.dart';
+import 'package:velo_toulouse/model/bike_slot.dart';
 
 abstract class BikeRepository {
   // Bike methods
