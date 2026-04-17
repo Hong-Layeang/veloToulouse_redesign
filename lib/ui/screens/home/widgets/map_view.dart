@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:velo_toulouse/models/station.dart';
-import '../station_detail_screen.dart';
+import 'package:velo_toulouse/model/station.dart';
+import '../../station_detail/station_detail_screen.dart';
 
 const LatLng _fallbackCenter = LatLng(11.5564, 104.9282);
 
