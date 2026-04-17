@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:velo_toulouse/model/payment_method.dart';
 import 'package:velo_toulouse/ui/screens/payment_method/view_model/payment_method_view_model.dart';
 import 'package:velo_toulouse/ui/screens/confirmation/confirmation_screen.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
@@ -67,7 +68,6 @@ class PaymentMethodContent extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (_) => ConfirmationScreen(
-                              plan: viewModel.plan,
                               onFinish: () => Navigator.popUntil(context, (route) => route.isFirst),
                             ),
                           ),
