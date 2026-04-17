@@ -23,7 +23,7 @@ class BikeBookingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<BikeBookingViewModel>(
+    return Provider<BikeBookingViewModel>(
       create: (context) => BikeBookingViewModel(
         station: station,
         slotCode: slotCode,

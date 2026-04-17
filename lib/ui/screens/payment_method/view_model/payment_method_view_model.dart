@@ -34,6 +34,7 @@ class PaymentMethodViewModel extends ChangeNotifier {
 
   Future<void> processPayment() async {
     if (_selectedPaymentMethod == null) {
+      _status = PaymentStatus.error;
       _errorMessage = 'Please select a payment method';
       notifyListeners();
       return;
@@ -41,6 +42,7 @@ class PaymentMethodViewModel extends ChangeNotifier {
 
     try {
       _status = PaymentStatus.processing;
+      _errorMessage = null;
       notifyListeners();
 
       // Simulate payment processing

@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
-class ConfirmationViewModel extends ChangeNotifier {
+class ConfirmationViewModel {
   final VoidCallback onFinish;
 
   ConfirmationViewModel({

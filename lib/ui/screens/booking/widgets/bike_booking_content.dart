@@ -9,7 +9,7 @@ class BikeBookingContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<BikeBookingViewModel>();
+    final viewModel = context.read<BikeBookingViewModel>();
 
     return Scaffold(
       backgroundColor: AppTheme.background,

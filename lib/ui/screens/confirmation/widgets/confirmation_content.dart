@@ -8,7 +8,7 @@ class ConfirmationContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<ConfirmationViewModel>();
+    final viewModel = context.read<ConfirmationViewModel>();
 
     return Scaffold(
       body: Padding(

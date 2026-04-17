@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:velo_toulouse/model/station.dart';
 import 'package:velo_toulouse/ui/states/ride_state.dart';
 
-class BikeBookingViewModel extends ChangeNotifier {
+class BikeBookingViewModel {
   final Station station;
   final String slotCode;
   final String? bikeName;
@@ -55,11 +54,9 @@ class BikeBookingViewModel extends ChangeNotifier {
 
   void changeBike() {
     // This will be implemented to open a bike selection modal
-    notifyListeners();
   }
 
   void completeSwipeAndRent() {
     rideState.startRide(slotCode, station.id);
-    notifyListeners();
   }
 }
