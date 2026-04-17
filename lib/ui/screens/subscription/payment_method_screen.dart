@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../models/subscription.dart';
+import 'package:velo_toulouse/models/subscription/subscription.dart';
 import '../../theme/app_theme.dart';
 import '../../states/subscription_state.dart';
 import 'confirmation_screen.dart';
@@ -7,7 +7,7 @@ import 'confirmation_screen.dart';
 enum PaymentMethod { applePay, googlePay, creditCard }
 
 class PaymentMethodScreen extends StatefulWidget {
-  final SubscriptionPlan plan;
+  final Subscription plan;
   final SubscriptionState subscriptionState;
   final VoidCallback? onSubscribed;
 

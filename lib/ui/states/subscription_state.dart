@@ -1,5 +1,20 @@
 import 'package:flutter/material.dart';
-import '../../../models/subscription.dart';
+import 'package:velo_toulouse/models/subscription/subscription.dart';
+
+class ActiveSubscription {
+  final Subscription plan;
+  final DateTime startDate;
+  final DateTime expirationDate;
+
+  const ActiveSubscription({
+    required this.plan,
+    required this.startDate,
+    required this.expirationDate,
+  });
+
+  bool get isExpired => DateTime.now().isAfter(expirationDate);
+  bool get isActive => !isExpired;
+}
 
 class SubscriptionState extends ChangeNotifier {
   ActiveSubscription? _activeSubscription;
@@ -8,7 +23,7 @@ class SubscriptionState extends ChangeNotifier {
   bool get hasActiveSubscription =>
       _activeSubscription != null && _activeSubscription!.isActive;
 
-  void subscribe(SubscriptionPlan plan) {
+  void subscribe(Subscription plan) {
     final now = DateTime.now();
     _activeSubscription = ActiveSubscription(
       plan: plan,

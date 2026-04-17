@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../models/bike.dart';
+import '../../../../models/bike/bike.dart';
 import '../../../theme/app_theme.dart';
 import '../../../states/subscription_state.dart';
 import '../../subscription/subscriptions_screen.dart';
@@ -104,9 +104,7 @@ class _SwipeToRentState extends State<SwipeToRent>
           child: Row(
             children: [
               Icon(
-                widget.bike.type == BikeType.electric
-                    ? Icons.electric_bike
-                    : Icons.pedal_bike,
+                Icons.pedal_bike,
                 color: AppTheme.primary,
                 size: 20,
               ),
@@ -120,16 +118,10 @@ class _SwipeToRentState extends State<SwipeToRent>
                 ),
               ),
               const Spacer(),
-              if (widget.bike.batteryPercent != null)
-                Text(
-                  '${widget.bike.batteryPercent}% battery',
-                  style: const TextStyle(fontSize: 13, color: AppTheme.textSecondary),
-                )
-              else
-                const Text(
-                  'Mechanical',
-                  style: TextStyle(fontSize: 13, color: AppTheme.textSecondary),
-                ),
+              const Text(
+                'Ready to rent',
+                style: TextStyle(fontSize: 13, color: AppTheme.textSecondary),
+              ),
             ],
           ),
         ),

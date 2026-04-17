@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../models/subscription.dart';
+import 'package:velo_toulouse/models/subscription/subscription.dart';
 import '../../theme/app_theme.dart';
 
 class ConfirmationScreen extends StatelessWidget {
-  final SubscriptionPlan plan;
+  final Subscription plan;
   final VoidCallback onFinish;
 
   const ConfirmationScreen({
