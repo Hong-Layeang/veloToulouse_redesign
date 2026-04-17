@@ -142,8 +142,8 @@ class _PaymentOption extends StatelessWidget {
                 size: 28,
                 color: selected ? AppTheme.primary : AppTheme.textSecondary,
               )
-            else if (iconWidget != null)
-              iconWidget!,
+            else
+              iconWidget ?? const SizedBox.shrink(),
             const SizedBox(width: 16),
             Text(
               label,
