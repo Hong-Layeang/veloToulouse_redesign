@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:velo_toulouse/ui/screens/subscription/view_model/subscriptions_view_model.dart';
 import 'package:velo_toulouse/ui/screens/payment_method/payment_method_screen.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
+import 'package:velo_toulouse/ui/utils/async_value.dart';
 
 class SubscriptionsContent extends StatelessWidget {
   const SubscriptionsContent({super.key});
@@ -15,18 +16,18 @@ class SubscriptionsContent extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context, SubscriptionsViewModel viewModel) {
-    switch (viewModel.status) {
-      case SubscriptionsStatus.loading:
+    switch (viewModel.plansValue.state) {
+      case AsyncValueState.loading:
         return const Scaffold(
           body: Center(child: CircularProgressIndicator()),
         );
-      case SubscriptionsStatus.error:
+      case AsyncValueState.error:
         return Scaffold(
           body: Center(
             child: Text(viewModel.errorMessage ?? 'An error occurred'),
           ),
         );
-      case SubscriptionsStatus.success:
+      case AsyncValueState.success:
         return Scaffold(
           body: CustomScrollView(
             slivers: [
@@ -71,7 +72,7 @@ class SubscriptionsContent extends StatelessWidget {
                             ),
                             SizedBox(height: 10),
                             Text(
-                              'All plans are based on the mock subscription data already used by the app.',
+                              'All plans are loaded from realtime Firebase data.',
                               style: TextStyle(
                                 color: Colors.white70,
                                 fontSize: 14,

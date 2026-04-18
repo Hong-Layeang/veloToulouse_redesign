@@ -1,0 +1,2296 @@
+{
+  "users": {
+    "demo_user": {
+      "name": "Demo User",
+      "activeSubscriptionId": null
+    }
+  },
+  "stations": {
+    "station_1": {
+      "name": "Independence Monument",
+      "latitude": 11.5564,
+      "longitude": 104.9282,
+      "availableSlots": 4,
+      "totalSlots": 10
+    },
+    "station_2": {
+      "name": "Sisowath Quay Riverside",
+      "latitude": 11.57,
+      "longitude": 104.931,
+      "availableSlots": 6,
+      "totalSlots": 10
+    },
+    "station_3": {
+      "name": "Royal Palace",
+      "latitude": 11.564,
+      "longitude": 104.9316,
+      "availableSlots": 3,
+      "totalSlots": 12
+    },
+    "station_4": {
+      "name": "Wat Phnom",
+      "latitude": 11.5765,
+      "longitude": 104.9223,
+      "availableSlots": 5,
+      "totalSlots": 10
+    },
+    "station_5": {
+      "name": "Central Market (Phsar Thmei)",
+      "latitude": 11.5697,
+      "longitude": 104.9213,
+      "availableSlots": 2,
+      "totalSlots": 14
+    },
+    "station_6": {
+      "name": "Russian Market (Phsar Toul Tom Poung)",
+      "latitude": 11.5437,
+      "longitude": 104.9201,
+      "availableSlots": 7,
+      "totalSlots": 12
+    },
+    "station_7": {
+      "name": "Orussey Market",
+      "latitude": 11.5608,
+      "longitude": 104.9177,
+      "availableSlots": 4,
+      "totalSlots": 10
+    },
+    "station_8": {
+      "name": "Olympic Stadium",
+      "latitude": 11.5595,
+      "longitude": 104.9122,
+      "availableSlots": 8,
+      "totalSlots": 15
+    },
+    "station_9": {
+      "name": "National Museum",
+      "latitude": 11.5647,
+      "longitude": 104.9303,
+      "availableSlots": 5,
+      "totalSlots": 10
+    },
+    "station_10": {
+      "name": "Wat Ounalom",
+      "latitude": 11.5695,
+      "longitude": 104.9307,
+      "availableSlots": 3,
+      "totalSlots": 8
+    },
+    "station_11": {
+      "name": "Wat Langka",
+      "latitude": 11.5552,
+      "longitude": 104.9232,
+      "availableSlots": 6,
+      "totalSlots": 10
+    },
+    "station_12": {
+      "name": "BKK Market",
+      "latitude": 11.5517,
+      "longitude": 104.9198,
+      "availableSlots": 4,
+      "totalSlots": 12
+    },
+    "station_13": {
+      "name": "Tuol Sleng Genocide Museum",
+      "latitude": 11.5492,
+      "longitude": 104.9176,
+      "availableSlots": 5,
+      "totalSlots": 10
+    },
+    "station_14": {
+      "name": "Hun Sen Park",
+      "latitude": 11.5507,
+      "longitude": 104.9304,
+      "availableSlots": 9,
+      "totalSlots": 15
+    },
+    "station_15": {
+      "name": "Koh Pich (Diamond Island)",
+      "latitude": 11.5469,
+      "longitude": 104.9372,
+      "availableSlots": 7,
+      "totalSlots": 14
+    },
+    "station_16": {
+      "name": "NagaWorld",
+      "latitude": 11.5545,
+      "longitude": 104.9329,
+      "availableSlots": 6,
+      "totalSlots": 12
+    },
+    "station_17": {
+      "name": "Aeon Mall Phnom Penh",
+      "latitude": 11.5502,
+      "longitude": 104.9323,
+      "availableSlots": 10,
+      "totalSlots": 20
+    },
+    "station_18": {
+      "name": "Chroy Changvar Bridge",
+      "latitude": 11.5829,
+      "longitude": 104.9357,
+      "availableSlots": 4,
+      "totalSlots": 10
+    },
+    "station_19": {
+      "name": "Royal University of Phnom Penh",
+      "latitude": 11.5685,
+      "longitude": 104.8898,
+      "availableSlots": 8,
+      "totalSlots": 16
+    },
+    "station_20": {
+      "name": "Aeon Mall Sen Sok City",
+      "latitude": 11.6042,
+      "longitude": 104.8869,
+      "availableSlots": 11,
+      "totalSlots": 20
+    },
+    "station_21": {
+      "name": "Stung Meanchey",
+      "latitude": 11.5246,
+      "longitude": 104.9097,
+      "availableSlots": 5,
+      "totalSlots": 10
+    }
+  },
+  "bikes": {
+    "bike_1": {
+      "name": "Velo Red",
+      "imageUrl": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "bike_2": {
+      "name": "Velo Blue",
+      "imageUrl": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "bike_3": {
+      "name": "Velo Yellow",
+      "imageUrl": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "bike_4": {
+      "name": "Velo Green",
+      "imageUrl": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "bike_5": {
+      "name": "Velo Orange",
+      "imageUrl": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "bike_6": {
+      "name": "Velo Red",
+      "imageUrl": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "bike_7": {
+      "name": "Velo Blue",
+      "imageUrl": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "bike_8": {
+      "name": "Velo Green",
+      "imageUrl": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    }
+  },
+  "bikeSlots": {
+    "slot_1": {
+      "stationId": "station_1",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_2": {
+      "stationId": "station_1",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_3": {
+      "stationId": "station_1",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_4": {
+      "stationId": "station_1",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_5": {
+      "stationId": "station_1",
+      "slotNumber": "A5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_6": {
+      "stationId": "station_1",
+      "slotNumber": "B1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_7": {
+      "stationId": "station_1",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_8": {
+      "stationId": "station_1",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_9": {
+      "stationId": "station_1",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_10": {
+      "stationId": "station_1",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_11": {
+      "stationId": "station_2",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_12": {
+      "stationId": "station_2",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_13": {
+      "stationId": "station_2",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_14": {
+      "stationId": "station_2",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_15": {
+      "stationId": "station_2",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_16": {
+      "stationId": "station_2",
+      "slotNumber": "B1",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_17": {
+      "stationId": "station_2",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_18": {
+      "stationId": "station_2",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_19": {
+      "stationId": "station_2",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_20": {
+      "stationId": "station_2",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_21": {
+      "stationId": "station_3",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_22": {
+      "stationId": "station_3",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_23": {
+      "stationId": "station_3",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_24": {
+      "stationId": "station_3",
+      "slotNumber": "A4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_25": {
+      "stationId": "station_3",
+      "slotNumber": "A5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_26": {
+      "stationId": "station_3",
+      "slotNumber": "B1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_27": {
+      "stationId": "station_3",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_28": {
+      "stationId": "station_3",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_29": {
+      "stationId": "station_3",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_30": {
+      "stationId": "station_3",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_31": {
+      "stationId": "station_3",
+      "slotNumber": "C1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_32": {
+      "stationId": "station_3",
+      "slotNumber": "C2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_33": {
+      "stationId": "station_4",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_34": {
+      "stationId": "station_4",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_35": {
+      "stationId": "station_4",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_36": {
+      "stationId": "station_4",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_37": {
+      "stationId": "station_4",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_38": {
+      "stationId": "station_4",
+      "slotNumber": "B1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_39": {
+      "stationId": "station_4",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_40": {
+      "stationId": "station_4",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_41": {
+      "stationId": "station_4",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_42": {
+      "stationId": "station_4",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_43": {
+      "stationId": "station_5",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_44": {
+      "stationId": "station_5",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_45": {
+      "stationId": "station_5",
+      "slotNumber": "A3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_46": {
+      "stationId": "station_5",
+      "slotNumber": "A4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_47": {
+      "stationId": "station_5",
+      "slotNumber": "A5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_48": {
+      "stationId": "station_5",
+      "slotNumber": "B1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_49": {
+      "stationId": "station_5",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_50": {
+      "stationId": "station_5",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_51": {
+      "stationId": "station_5",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_52": {
+      "stationId": "station_5",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_53": {
+      "stationId": "station_5",
+      "slotNumber": "C1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_54": {
+      "stationId": "station_5",
+      "slotNumber": "C2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_55": {
+      "stationId": "station_5",
+      "slotNumber": "C3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_56": {
+      "stationId": "station_5",
+      "slotNumber": "C4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_57": {
+      "stationId": "station_6",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_58": {
+      "stationId": "station_6",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_59": {
+      "stationId": "station_6",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_60": {
+      "stationId": "station_6",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_61": {
+      "stationId": "station_6",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_62": {
+      "stationId": "station_6",
+      "slotNumber": "B1",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_63": {
+      "stationId": "station_6",
+      "slotNumber": "B2",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_64": {
+      "stationId": "station_6",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_65": {
+      "stationId": "station_6",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_66": {
+      "stationId": "station_6",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_67": {
+      "stationId": "station_6",
+      "slotNumber": "C1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_68": {
+      "stationId": "station_6",
+      "slotNumber": "C2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_69": {
+      "stationId": "station_7",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_70": {
+      "stationId": "station_7",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_71": {
+      "stationId": "station_7",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_72": {
+      "stationId": "station_7",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_73": {
+      "stationId": "station_7",
+      "slotNumber": "A5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_74": {
+      "stationId": "station_7",
+      "slotNumber": "B1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_75": {
+      "stationId": "station_7",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_76": {
+      "stationId": "station_7",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_77": {
+      "stationId": "station_7",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_78": {
+      "stationId": "station_7",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_79": {
+      "stationId": "station_8",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_80": {
+      "stationId": "station_8",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_81": {
+      "stationId": "station_8",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_82": {
+      "stationId": "station_8",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_83": {
+      "stationId": "station_8",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_84": {
+      "stationId": "station_8",
+      "slotNumber": "B1",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_85": {
+      "stationId": "station_8",
+      "slotNumber": "B2",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_86": {
+      "stationId": "station_8",
+      "slotNumber": "B3",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_87": {
+      "stationId": "station_8",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_88": {
+      "stationId": "station_8",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_89": {
+      "stationId": "station_8",
+      "slotNumber": "C1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_90": {
+      "stationId": "station_8",
+      "slotNumber": "C2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_91": {
+      "stationId": "station_8",
+      "slotNumber": "C3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_92": {
+      "stationId": "station_8",
+      "slotNumber": "C4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_93": {
+      "stationId": "station_8",
+      "slotNumber": "C5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_94": {
+      "stationId": "station_9",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_95": {
+      "stationId": "station_9",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_96": {
+      "stationId": "station_9",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_97": {
+      "stationId": "station_9",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_98": {
+      "stationId": "station_9",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_99": {
+      "stationId": "station_9",
+      "slotNumber": "B1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_100": {
+      "stationId": "station_9",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_101": {
+      "stationId": "station_9",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_102": {
+      "stationId": "station_9",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_103": {
+      "stationId": "station_9",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_104": {
+      "stationId": "station_10",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_105": {
+      "stationId": "station_10",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_106": {
+      "stationId": "station_10",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_107": {
+      "stationId": "station_10",
+      "slotNumber": "A4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_108": {
+      "stationId": "station_10",
+      "slotNumber": "A5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_109": {
+      "stationId": "station_10",
+      "slotNumber": "B1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_110": {
+      "stationId": "station_10",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_111": {
+      "stationId": "station_10",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_112": {
+      "stationId": "station_11",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_113": {
+      "stationId": "station_11",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_114": {
+      "stationId": "station_11",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_115": {
+      "stationId": "station_11",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_116": {
+      "stationId": "station_11",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_117": {
+      "stationId": "station_11",
+      "slotNumber": "B1",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_118": {
+      "stationId": "station_11",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_119": {
+      "stationId": "station_11",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_120": {
+      "stationId": "station_11",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_121": {
+      "stationId": "station_11",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_122": {
+      "stationId": "station_12",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_123": {
+      "stationId": "station_12",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_124": {
+      "stationId": "station_12",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_125": {
+      "stationId": "station_12",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_126": {
+      "stationId": "station_12",
+      "slotNumber": "A5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_127": {
+      "stationId": "station_12",
+      "slotNumber": "B1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_128": {
+      "stationId": "station_12",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_129": {
+      "stationId": "station_12",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_130": {
+      "stationId": "station_12",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_131": {
+      "stationId": "station_12",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_132": {
+      "stationId": "station_12",
+      "slotNumber": "C1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_133": {
+      "stationId": "station_12",
+      "slotNumber": "C2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_134": {
+      "stationId": "station_13",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_135": {
+      "stationId": "station_13",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_136": {
+      "stationId": "station_13",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_137": {
+      "stationId": "station_13",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_138": {
+      "stationId": "station_13",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_139": {
+      "stationId": "station_13",
+      "slotNumber": "B1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_140": {
+      "stationId": "station_13",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_141": {
+      "stationId": "station_13",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_142": {
+      "stationId": "station_13",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_143": {
+      "stationId": "station_13",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_144": {
+      "stationId": "station_14",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_145": {
+      "stationId": "station_14",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_146": {
+      "stationId": "station_14",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_147": {
+      "stationId": "station_14",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_148": {
+      "stationId": "station_14",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_149": {
+      "stationId": "station_14",
+      "slotNumber": "B1",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_150": {
+      "stationId": "station_14",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_151": {
+      "stationId": "station_14",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_152": {
+      "stationId": "station_14",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_153": {
+      "stationId": "station_14",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_154": {
+      "stationId": "station_14",
+      "slotNumber": "C1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_155": {
+      "stationId": "station_14",
+      "slotNumber": "C2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_156": {
+      "stationId": "station_14",
+      "slotNumber": "C3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_157": {
+      "stationId": "station_14",
+      "slotNumber": "C4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_158": {
+      "stationId": "station_14",
+      "slotNumber": "C5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_159": {
+      "stationId": "station_15",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_160": {
+      "stationId": "station_15",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_161": {
+      "stationId": "station_15",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_162": {
+      "stationId": "station_15",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_163": {
+      "stationId": "station_15",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_164": {
+      "stationId": "station_15",
+      "slotNumber": "B1",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_165": {
+      "stationId": "station_15",
+      "slotNumber": "B2",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_166": {
+      "stationId": "station_15",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_167": {
+      "stationId": "station_15",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_168": {
+      "stationId": "station_15",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_169": {
+      "stationId": "station_15",
+      "slotNumber": "C1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_170": {
+      "stationId": "station_15",
+      "slotNumber": "C2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_171": {
+      "stationId": "station_15",
+      "slotNumber": "C3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_172": {
+      "stationId": "station_15",
+      "slotNumber": "C4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_173": {
+      "stationId": "station_16",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_174": {
+      "stationId": "station_16",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_175": {
+      "stationId": "station_16",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_176": {
+      "stationId": "station_16",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_177": {
+      "stationId": "station_16",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_178": {
+      "stationId": "station_16",
+      "slotNumber": "B1",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_179": {
+      "stationId": "station_16",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_180": {
+      "stationId": "station_16",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_181": {
+      "stationId": "station_16",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_182": {
+      "stationId": "station_16",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_183": {
+      "stationId": "station_16",
+      "slotNumber": "C1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_184": {
+      "stationId": "station_16",
+      "slotNumber": "C2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_185": {
+      "stationId": "station_17",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_186": {
+      "stationId": "station_17",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_187": {
+      "stationId": "station_17",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_188": {
+      "stationId": "station_17",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_189": {
+      "stationId": "station_17",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_190": {
+      "stationId": "station_17",
+      "slotNumber": "B1",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_191": {
+      "stationId": "station_17",
+      "slotNumber": "B2",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_192": {
+      "stationId": "station_17",
+      "slotNumber": "B3",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_193": {
+      "stationId": "station_17",
+      "slotNumber": "B4",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_194": {
+      "stationId": "station_17",
+      "slotNumber": "B5",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_195": {
+      "stationId": "station_17",
+      "slotNumber": "C1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_196": {
+      "stationId": "station_17",
+      "slotNumber": "C2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_197": {
+      "stationId": "station_17",
+      "slotNumber": "C3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_198": {
+      "stationId": "station_17",
+      "slotNumber": "C4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_199": {
+      "stationId": "station_17",
+      "slotNumber": "C5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_200": {
+      "stationId": "station_17",
+      "slotNumber": "D1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_201": {
+      "stationId": "station_17",
+      "slotNumber": "D2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_202": {
+      "stationId": "station_17",
+      "slotNumber": "D3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_203": {
+      "stationId": "station_17",
+      "slotNumber": "D4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_204": {
+      "stationId": "station_17",
+      "slotNumber": "D5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_205": {
+      "stationId": "station_18",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_206": {
+      "stationId": "station_18",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_207": {
+      "stationId": "station_18",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_208": {
+      "stationId": "station_18",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_209": {
+      "stationId": "station_18",
+      "slotNumber": "A5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_210": {
+      "stationId": "station_18",
+      "slotNumber": "B1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_211": {
+      "stationId": "station_18",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_212": {
+      "stationId": "station_18",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_213": {
+      "stationId": "station_18",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_214": {
+      "stationId": "station_18",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_215": {
+      "stationId": "station_19",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_216": {
+      "stationId": "station_19",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_217": {
+      "stationId": "station_19",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_218": {
+      "stationId": "station_19",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_219": {
+      "stationId": "station_19",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_220": {
+      "stationId": "station_19",
+      "slotNumber": "B1",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_221": {
+      "stationId": "station_19",
+      "slotNumber": "B2",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_222": {
+      "stationId": "station_19",
+      "slotNumber": "B3",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_223": {
+      "stationId": "station_19",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_224": {
+      "stationId": "station_19",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_225": {
+      "stationId": "station_19",
+      "slotNumber": "C1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_226": {
+      "stationId": "station_19",
+      "slotNumber": "C2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_227": {
+      "stationId": "station_19",
+      "slotNumber": "C3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_228": {
+      "stationId": "station_19",
+      "slotNumber": "C4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_229": {
+      "stationId": "station_19",
+      "slotNumber": "C5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_230": {
+      "stationId": "station_19",
+      "slotNumber": "D1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_231": {
+      "stationId": "station_20",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_232": {
+      "stationId": "station_20",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_233": {
+      "stationId": "station_20",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_234": {
+      "stationId": "station_20",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_235": {
+      "stationId": "station_20",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_236": {
+      "stationId": "station_20",
+      "slotNumber": "B1",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_237": {
+      "stationId": "station_20",
+      "slotNumber": "B2",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_238": {
+      "stationId": "station_20",
+      "slotNumber": "B3",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_239": {
+      "stationId": "station_20",
+      "slotNumber": "B4",
+      "isAvailable": false,
+      "bikeId": "bike_8",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_240": {
+      "stationId": "station_20",
+      "slotNumber": "B5",
+      "isAvailable": false,
+      "bikeId": "bike_1",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_241": {
+      "stationId": "station_20",
+      "slotNumber": "C1",
+      "isAvailable": false,
+      "bikeId": "bike_2",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_242": {
+      "stationId": "station_20",
+      "slotNumber": "C2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_243": {
+      "stationId": "station_20",
+      "slotNumber": "C3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_244": {
+      "stationId": "station_20",
+      "slotNumber": "C4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_245": {
+      "stationId": "station_20",
+      "slotNumber": "C5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_246": {
+      "stationId": "station_20",
+      "slotNumber": "D1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_247": {
+      "stationId": "station_20",
+      "slotNumber": "D2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_248": {
+      "stationId": "station_20",
+      "slotNumber": "D3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_249": {
+      "stationId": "station_20",
+      "slotNumber": "D4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_250": {
+      "stationId": "station_20",
+      "slotNumber": "D5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_251": {
+      "stationId": "station_21",
+      "slotNumber": "A1",
+      "isAvailable": false,
+      "bikeId": "bike_3",
+      "bikeName": "Velo Yellow",
+      "bikeImage": "https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg"
+    },
+    "slot_252": {
+      "stationId": "station_21",
+      "slotNumber": "A2",
+      "isAvailable": false,
+      "bikeId": "bike_4",
+      "bikeName": "Velo Green",
+      "bikeImage": "https://spectator.com/wp-content/uploads/2023/03/Toby-Getty.jpg"
+    },
+    "slot_253": {
+      "stationId": "station_21",
+      "slotNumber": "A3",
+      "isAvailable": false,
+      "bikeId": "bike_5",
+      "bikeName": "Velo Orange",
+      "bikeImage": "https://i0.wp.com/restoringvintagebicycles.com/wp-content/uploads/2016/07/2016-07-19-010.jpg"
+    },
+    "slot_254": {
+      "stationId": "station_21",
+      "slotNumber": "A4",
+      "isAvailable": false,
+      "bikeId": "bike_6",
+      "bikeName": "Velo Red",
+      "bikeImage": "https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg"
+    },
+    "slot_255": {
+      "stationId": "station_21",
+      "slotNumber": "A5",
+      "isAvailable": false,
+      "bikeId": "bike_7",
+      "bikeName": "Velo Blue",
+      "bikeImage": "https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg"
+    },
+    "slot_256": {
+      "stationId": "station_21",
+      "slotNumber": "B1",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_257": {
+      "stationId": "station_21",
+      "slotNumber": "B2",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_258": {
+      "stationId": "station_21",
+      "slotNumber": "B3",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_259": {
+      "stationId": "station_21",
+      "slotNumber": "B4",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    },
+    "slot_260": {
+      "stationId": "station_21",
+      "slotNumber": "B5",
+      "isAvailable": true,
+      "bikeId": null,
+      "bikeName": "",
+      "bikeImage": ""
+    }
+  },
+  "subscriptions": {
+    "day_pass": {
+      "label": "Day Pass",
+      "description": "Unlimited 30 minutes rides\nValid for 24 hours",
+      "price": 3,
+      "durationInDays": 1,
+      "rideDurationInMinutes": 30
+    },
+    "monthly_pass": {
+      "label": "Monthly Pass - Best Deal",
+      "description": "Unlimited 45 minutes rides\nValid for 1 month",
+      "price": 25,
+      "durationInDays": 30,
+      "rideDurationInMinutes": 45
+    },
+    "annual_pass": {
+      "label": "Annual Pass",
+      "description": "Unlimited 45 minutes rides\nValid for 1 year",
+      "price": 50,
+      "durationInDays": 365,
+      "rideDurationInMinutes": 45
+    }
+  }
+}
