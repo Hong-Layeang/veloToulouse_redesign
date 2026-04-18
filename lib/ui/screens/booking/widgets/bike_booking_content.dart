@@ -162,7 +162,10 @@ class BikeBookingContent extends StatelessWidget {
                                     content: Text('No other bikes available at this station.'),
                                   ),
                                 );
+                                return;
                               }
+
+                              Navigator.of(context).pop();
                             },
                             child: const Text(
                               'Change',
