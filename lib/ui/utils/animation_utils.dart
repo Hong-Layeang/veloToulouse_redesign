@@ -3,11 +3,17 @@ import 'package:flutter/material.dart';
 // SwipeToRentControl - Swipe gesture to confirm bike rental
 class SwipeToRentControl extends StatefulWidget {
   final VoidCallback onSwipeComplete;
+  final VoidCallback? onSwipeBlocked;
+  final bool enabled;
+  final String? blockedMessage;
   final String label;
 
   const SwipeToRentControl({
     super.key,
     required this.onSwipeComplete,
+    this.onSwipeBlocked,
+    this.enabled = true,
+    this.blockedMessage,
     this.label = 'Swipe to Rent',
   });
 
@@ -43,6 +49,12 @@ class _SwipeToRentControlState extends State<SwipeToRentControl>
 
   void _handleDragEnd(double maxDistance) {
     if (_dragPosition > maxDistance * 0.85) {
+      if (!widget.enabled) {
+        setState(() => _dragPosition = 0.0);
+        widget.onSwipeBlocked?.call();
+        return;
+      }
+
       // Completed swipe
       widget.onSwipeComplete();
       _animationController.forward();
@@ -69,9 +81,15 @@ class _SwipeToRentControlState extends State<SwipeToRentControl>
       child: Container(
         height: 60,
         decoration: BoxDecoration(
-          color: const Color(0xFFF4F8FA),
+          color: widget.enabled
+              ? const Color(0xFFF4F8FA)
+              : const Color(0xFFF1F1F1),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: const Color(0xFFE2E2E2)),
+          border: Border.all(
+            color: widget.enabled
+                ? const Color(0xFFE2E2E2)
+                : const Color(0xFFD7D7D7),
+          ),
         ),
         child: Stack(
           children: [

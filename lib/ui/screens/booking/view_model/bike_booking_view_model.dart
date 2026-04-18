@@ -41,6 +41,12 @@ class BikeBookingViewModel extends ChangeNotifier {
     return 'black';
   }
 
+  bool get canStartRide => !rideState.hasActiveRide;
+
+  String get activeRideMessage {
+    return 'End your current ride first to unlock another bike.';
+  }
+
   String getColorImagePath(String? color) {
     final colorLower = color?.toLowerCase().trim() ?? 'black';
     const colorImages = {
@@ -58,8 +64,11 @@ class BikeBookingViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void completeSwipeAndRent() {
-    rideState.startRide(slotCode, station.id);
-    notifyListeners();
+  bool completeSwipeAndRent() {
+    final bool started = rideState.startRide(slotCode, station.id);
+    if (started) {
+      notifyListeners();
+    }
+    return started;
   }
 }

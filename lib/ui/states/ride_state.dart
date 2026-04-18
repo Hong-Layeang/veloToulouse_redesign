@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class ActiveRide {
@@ -16,25 +18,53 @@ class ActiveRide {
 
 class RideState extends ChangeNotifier {
   ActiveRide? _currentRide;
+  Timer? _ticker;
 
   ActiveRide? get currentRide => _currentRide;
   bool get hasActiveRide => _currentRide != null;
   Duration get rideElapsedTime => _currentRide?.elapsedTime ?? Duration.zero;
 
+  void _startTicker() {
+    _ticker?.cancel();
+    _ticker = Timer.periodic(const Duration(seconds: 1), (_) {
+      if (hasActiveRide) {
+        notifyListeners();
+      }
+    });
+  }
+
+  void _stopTicker() {
+    _ticker?.cancel();
+    _ticker = null;
+  }
+
   // Start a new ride when bike is booked
-  void startRide(String bikeSlotId, String stationId) {
+  bool startRide(String bikeSlotId, String stationId) {
+    if (hasActiveRide) {
+      return false;
+    }
+
     _currentRide = ActiveRide(
       bikeSlotId: bikeSlotId,
       stationId: stationId,
       startTime: DateTime.now(),
     );
+    _startTicker();
     notifyListeners();
+    return true;
   }
 
   // End the current ride
   void endRide() {
     _currentRide = null;
+    _stopTicker();
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    _stopTicker();
+    super.dispose();
   }
 
   // Get current ride duration

@@ -17,9 +17,7 @@ class SubscriptionsContent extends StatelessWidget {
   Widget _buildBody(BuildContext context, SubscriptionsViewModel viewModel) {
     switch (viewModel.status) {
       case SubscriptionsStatus.loading:
-        return const Scaffold(
-          body: Center(child: CircularProgressIndicator()),
-        );
+        return const Scaffold(body: Center(child: CircularProgressIndicator()));
       case SubscriptionsStatus.error:
         return Scaffold(
           body: Center(
@@ -71,10 +69,10 @@ class SubscriptionsContent extends StatelessWidget {
                             ),
                             SizedBox(height: 10),
                             Text(
-                              'All plans are based on the mock subscription data already used by the app.',
+                              'Unlock bikes with a tap and enjoy seamless rides across the city.',
                               style: TextStyle(
                                 color: Colors.white70,
-                                fontSize: 14,
+                                fontSize: 15,
                                 height: 1.4,
                               ),
                             ),
@@ -94,19 +92,22 @@ class SubscriptionsContent extends StatelessWidget {
                       activeLabel: 'No active pass',
                     ),
                     const SizedBox(height: 18),
-                    ...(viewModel.plans.map(
-                      (plan) => _PlanCard(
-                        plan: plan,
-                        isActive: false,
-                        onSelect: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => PaymentMethodScreen(plan: plan),
-                            ),
-                          );
-                        },
-                      ),
-                    ).toList()),
+                    ...(viewModel.plans
+                        .map(
+                          (plan) => _PlanCard(
+                            plan: plan,
+                            isActive: false,
+                            onSelect: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) =>
+                                      PaymentMethodScreen(plan: plan),
+                                ),
+                              );
+                            },
+                          ),
+                        )
+                        .toList()),
                   ]),
                 ),
               ),
@@ -267,7 +268,9 @@ class _PlanCard extends StatelessWidget {
             child: ElevatedButton(
               onPressed: onSelect,
               style: ElevatedButton.styleFrom(
-                backgroundColor: isActive ? AppTheme.primary.withValues(alpha: 0.1) : AppTheme.primary,
+                backgroundColor: isActive
+                    ? AppTheme.primary.withValues(alpha: 0.1)
+                    : AppTheme.primary,
                 foregroundColor: isActive ? AppTheme.primary : Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -288,4 +291,3 @@ class _PlanCard extends StatelessWidget {
     );
   }
 }
-
