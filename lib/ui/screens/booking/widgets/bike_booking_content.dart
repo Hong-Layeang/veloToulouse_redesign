@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
 import 'package:velo_toulouse/ui/utils/animation_utils.dart';
+import 'package:velo_toulouse/ui/screens/subscription/subscriptions_screen.dart';
 import '../view_model/bike_booking_view_model.dart';
 
 class BikeBookingContent extends StatelessWidget {
@@ -9,7 +10,7 @@ class BikeBookingContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.read<BikeBookingViewModel>();
+    final viewModel = context.watch<BikeBookingViewModel>();
 
     return Scaffold(
       backgroundColor: AppTheme.background,
@@ -153,7 +154,16 @@ class BikeBookingContent extends StatelessWidget {
                             ),
                           ),
                           TextButton(
-                            onPressed: () => viewModel.changeBike(),
+                            onPressed: () {
+                              final changed = viewModel.changeBike();
+                              if (!changed) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('No other bikes available at this station.'),
+                                  ),
+                                );
+                              }
+                            },
                             child: const Text(
                               'Change',
                               style: TextStyle(
@@ -191,18 +201,18 @@ class BikeBookingContent extends StatelessWidget {
                         borderRadius: BorderRadius.circular(14),
                         border: Border.all(color: AppTheme.divider, width: 1.2),
                       ),
-                      child: const Row(
+                      child: Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.wallet_membership,
                             size: 36,
                             color: AppTheme.primary,
                           ),
-                          SizedBox(width: 12),
+                          const SizedBox(width: 12),
                           Expanded(
                             child: Text(
-                              'Unlimited 45 min rides\nValid for 1 year',
-                              style: TextStyle(
+                              viewModel.subscriptionSummary,
+                              style: const TextStyle(
                                 fontSize: 14,
                                 color: AppTheme.textPrimary,
                               ),
@@ -220,14 +230,22 @@ class BikeBookingContent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 8, 20, 18),
               child: SwipeToRentControl(
-                onSwipeComplete: () {
-                  viewModel.completeSwipeAndRent();
-                  // Navigate back after swiping
-                  Future.delayed(const Duration(milliseconds: 500), () {
-                    if (context.mounted) {
-                      Navigator.pop(context);
-                    }
-                  });
+                onSwipeComplete: () async {
+                  final navigator = Navigator.of(context);
+                  if (!viewModel.hasActiveSubscription) {
+                    await navigator.push<bool>(
+                      MaterialPageRoute(
+                        builder: (_) => const SubscriptionsScreen(
+                          returnToPreviousAfterSubscription: true,
+                        ),
+                      ),
+                    );
+                    return;
+                  }
+
+                  final rented = viewModel.completeSwipeAndRent();
+                  if (!rented || !context.mounted) return;
+                  navigator.popUntil((route) => route.isFirst);
                 },
                 label: 'Swipe to Rent',
               ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:velo_toulouse/model/station.dart';
 import 'package:velo_toulouse/ui/states/ride_state.dart';
+import 'package:velo_toulouse/ui/states/subscription_state.dart';
 import 'view_model/bike_booking_view_model.dart';
 import 'widgets/bike_booking_content.dart';
 
@@ -23,7 +24,7 @@ class BikeBookingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider<BikeBookingViewModel>(
+    return ChangeNotifierProvider<BikeBookingViewModel>(
       create: (context) => BikeBookingViewModel(
         station: station,
         slotCode: slotCode,
@@ -31,6 +32,7 @@ class BikeBookingScreen extends StatelessWidget {
         bikeImage: bikeImage,
         bikeColor: bikeColor,
         rideState: context.read<RideState>(),
+        subscriptionState: context.read<SubscriptionState>(),
       ),
       child: const BikeBookingContent(),
     );

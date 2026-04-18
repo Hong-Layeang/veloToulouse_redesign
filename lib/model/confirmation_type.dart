@@ -1,0 +1,1 @@
+enum ConfirmationType { subscription, bikeRental }

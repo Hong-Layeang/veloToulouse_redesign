@@ -86,10 +86,12 @@ class HomeContent extends StatelessWidget {
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            rideState.getRideDurationString(),
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
+                            rideState.getRideRemainingTimeString(),
+                            style: TextStyle(
+                              color: rideState.rideRemainingTime.inMinutes < 5
+                                  ? Colors.orange
+                                  : Colors.white,
+                              fontSize: 20,
                               fontWeight: FontWeight.w700,
                             ),
                           ),

@@ -1,21 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:velo_toulouse/model/subscription.dart';
 import 'package:velo_toulouse/ui/screens/subscription/view_model/subscriptions_view_model.dart';
 import 'package:velo_toulouse/ui/screens/payment_method/payment_method_screen.dart';
+import 'package:velo_toulouse/ui/states/subscription_state.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
 import 'package:velo_toulouse/ui/utils/async_value.dart';
 
 class SubscriptionsContent extends StatelessWidget {
-  const SubscriptionsContent({super.key});
+  final bool returnToPreviousAfterSubscription;
+
+  const SubscriptionsContent({
+    super.key,
+    this.returnToPreviousAfterSubscription = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     final subscriptionsViewModel = context.watch<SubscriptionsViewModel>();
+    final subscriptionState = context.watch<SubscriptionState>();
 
-    return _buildBody(context, subscriptionsViewModel);
+    return _buildBody(context, subscriptionsViewModel, subscriptionState);
   }
 
-  Widget _buildBody(BuildContext context, SubscriptionsViewModel viewModel) {
+  Widget _buildBody(
+    BuildContext context,
+    SubscriptionsViewModel viewModel,
+    SubscriptionState subscriptionState,
+  ) {
     switch (viewModel.plansValue.state) {
       case AsyncValueState.loading:
         return const Scaffold(
@@ -28,6 +40,10 @@ class SubscriptionsContent extends StatelessWidget {
           ),
         );
       case AsyncValueState.success:
+        final activePlan = subscriptionState.activeSubscription?.plan;
+        final activePlanId = activePlan?.id ?? '';
+        final activeLabel = activePlan?.label ?? 'No active pass';
+
         return Scaffold(
           body: CustomScrollView(
             slivers: [
@@ -90,21 +106,32 @@ class SubscriptionsContent extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 28),
                 sliver: SliverList(
                   delegate: SliverChildListDelegate.fixed([
-                    const _SubscriptionSummaryCard(
-                      activePlanId: '',
-                      activeLabel: 'No active pass',
+                    _SubscriptionSummaryCard(
+                      activePlanId: activePlanId,
+                      activeLabel: activeLabel,
                     ),
                     const SizedBox(height: 18),
                     ...(viewModel.plans.map(
                       (plan) => _PlanCard(
                         plan: plan,
-                        isActive: false,
+                        isActive: plan.id == activePlanId,
                         onSelect: () {
-                          Navigator.of(context).push(
+                          if (plan.id == activePlanId) return;
+                          Navigator.of(context).push<bool>(
                             MaterialPageRoute(
-                              builder: (_) => PaymentMethodScreen(plan: plan),
+                              builder: (_) => PaymentMethodScreen(
+                                plan: plan,
+                                returnToPreviousAfterConfirmation:
+                                    returnToPreviousAfterSubscription,
+                              ),
                             ),
-                          );
+                          ).then((subscribed) {
+                            if (subscribed == true &&
+                                returnToPreviousAfterSubscription &&
+                                context.mounted) {
+                              Navigator.of(context).pop(true);
+                            }
+                          });
                         },
                       ),
                     ).toList()),
@@ -185,7 +212,7 @@ class _SubscriptionSummaryCard extends StatelessWidget {
 }
 
 class _PlanCard extends StatelessWidget {
-  final dynamic plan;
+  final Subscription plan;
   final bool isActive;
   final VoidCallback onSelect;
 

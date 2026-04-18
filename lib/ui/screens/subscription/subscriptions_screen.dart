@@ -6,7 +6,12 @@ import 'package:velo_toulouse/ui/screens/subscription/widgets/subscriptions_cont
 
 /// Wrapper screen that creates the ViewModel and provides it to content
 class SubscriptionsScreenWrapper extends StatelessWidget {
-  const SubscriptionsScreenWrapper({super.key});
+  final bool returnToPreviousAfterSubscription;
+
+  const SubscriptionsScreenWrapper({
+    super.key,
+    this.returnToPreviousAfterSubscription = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,17 +19,26 @@ class SubscriptionsScreenWrapper extends StatelessWidget {
       create: (context) => SubscriptionsViewModel(
         subscriptionRepository: context.read<SubscriptionRepository>(),
       ),
-      child: const SubscriptionsContent(),
+      child: SubscriptionsContent(
+        returnToPreviousAfterSubscription: returnToPreviousAfterSubscription,
+      ),
     );
   }
 }
 
 /// Standalone screen (used when navigating directly)
 class SubscriptionsScreen extends StatelessWidget {
-  const SubscriptionsScreen({super.key});
+  final bool returnToPreviousAfterSubscription;
+
+  const SubscriptionsScreen({
+    super.key,
+    this.returnToPreviousAfterSubscription = false,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const SubscriptionsScreenWrapper();
+    return SubscriptionsScreenWrapper(
+      returnToPreviousAfterSubscription: returnToPreviousAfterSubscription,
+    );
   }
 }

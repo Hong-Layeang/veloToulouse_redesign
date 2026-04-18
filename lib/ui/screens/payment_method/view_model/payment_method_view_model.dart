@@ -11,6 +11,7 @@ class PaymentMethodViewModel extends ChangeNotifier {
   final SubscriptionRepository subscriptionRepository;
   final SubscriptionState subscriptionState;
   final VoidCallback? onSubscribed;
+  final bool returnToPreviousAfterConfirmation;
 
   PaymentMethod? _selectedPaymentMethod;
   PaymentStatus _status = PaymentStatus.initial;
@@ -25,6 +26,7 @@ class PaymentMethodViewModel extends ChangeNotifier {
     required this.subscriptionRepository,
     required this.subscriptionState,
     this.onSubscribed,
+    this.returnToPreviousAfterConfirmation = false,
   });
 
   void selectPaymentMethod(PaymentMethod method) {

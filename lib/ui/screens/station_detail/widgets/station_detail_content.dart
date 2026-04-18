@@ -10,7 +10,7 @@ class StationDetailContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.read<StationDetailViewModel>();
+    final viewModel = context.watch<StationDetailViewModel>();
     final width = MediaQuery.sizeOf(context).width;
     final crossAxisCount = _getGridCrossAxisCount(width);
 

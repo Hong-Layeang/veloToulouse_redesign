@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:velo_toulouse/model/station.dart';
+import 'package:velo_toulouse/ui/states/ride_state.dart';
 import '../../station_detail/station_detail_screen.dart';
 
 const LatLng _fallbackCenter = LatLng(11.5564, 104.9282);
@@ -20,8 +22,14 @@ class MapFilterState {
 class MapViewPresenter {
   const MapViewPresenter._();
 
-  static int availableBikeCount(Station station) {
-    return station.slots.where((slot) => slot.isAvailable).length;
+  static int availableBikeCount(Station station, RideState rideState) {
+    return station.slots
+        .where(
+          (slot) =>
+              slot.isAvailable &&
+              !rideState.isSlotRented(station.id, slot.slotNumber),
+        )
+        .length;
   }
 
   static List<Station> filterStations(
@@ -103,6 +111,7 @@ class _MapViewState extends State<MapView> {
   Widget build(BuildContext context) {
     final filteredStations = _filteredStations();
     final mapCenter = _resolveMapCenter(filteredStations);
+    final rideState = context.watch<RideState>();
 
     return Scaffold(
       body: Stack(
@@ -120,6 +129,7 @@ class _MapViewState extends State<MapView> {
                 markers: filteredStations.map((station) {
                   final availableBikes = MapViewPresenter.availableBikeCount(
                     station,
+                    rideState,
                   );
                   final hasAnyBikes = availableBikes > 0;
 

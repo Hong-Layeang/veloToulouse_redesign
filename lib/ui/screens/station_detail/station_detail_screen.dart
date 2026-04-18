@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:velo_toulouse/model/station.dart';
+import 'package:velo_toulouse/ui/states/ride_state.dart';
 import 'view_model/station_detail_view_model.dart';
 import 'widgets/station_detail_content.dart';
 
@@ -11,8 +12,11 @@ class StationDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider<StationDetailViewModel>(
-      create: (context) => StationDetailViewModel(station: station),
+    return ChangeNotifierProvider<StationDetailViewModel>(
+      create: (context) => StationDetailViewModel(
+        station: station,
+        rideState: context.read<RideState>(),
+      ),
       child: const StationDetailContent(),
     );
   }

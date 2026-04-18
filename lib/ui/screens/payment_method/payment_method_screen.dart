@@ -10,12 +10,14 @@ class PaymentMethodScreen extends StatelessWidget {
   final Subscription plan;
   final SubscriptionState? subscriptionState;
   final VoidCallback? onSubscribed;
+  final bool returnToPreviousAfterConfirmation;
 
   const PaymentMethodScreen({
     super.key,
     required this.plan,
     this.subscriptionState,
     this.onSubscribed,
+    this.returnToPreviousAfterConfirmation = false,
   });
 
   @override
@@ -26,6 +28,7 @@ class PaymentMethodScreen extends StatelessWidget {
         subscriptionRepository: context.read<SubscriptionRepository>(),
         subscriptionState: context.read<SubscriptionState>(),
         onSubscribed: onSubscribed,
+        returnToPreviousAfterConfirmation: returnToPreviousAfterConfirmation,
       ),
       child: const PaymentMethodContent(),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:velo_toulouse/model/payment_method.dart';
+import 'package:velo_toulouse/model/confirmation_type.dart';
 import 'package:velo_toulouse/ui/screens/payment_method/view_model/payment_method_view_model.dart';
 import 'package:velo_toulouse/ui/screens/confirmation/confirmation_screen.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
@@ -62,16 +63,26 @@ class PaymentMethodContent extends StatelessWidget {
               onPressed: viewModel.status == PaymentStatus.processing
                   ? null
                   : () async {
+                      final navigator = Navigator.of(context);
                       await viewModel.processPayment();
                       if (viewModel.status == PaymentStatus.success && context.mounted) {
-                        Navigator.push(
-                          context,
+                        final confirmed = await navigator.push<bool>(
                           MaterialPageRoute(
                             builder: (_) => ConfirmationScreen(
-                              onFinish: () => Navigator.popUntil(context, (route) => route.isFirst),
+                              onFinish: () => navigator.pop(true),
+                              type: ConfirmationType.subscription,
+                              subscription: viewModel.plan,
                             ),
                           ),
                         );
+
+                        if (confirmed == true && context.mounted) {
+                          if (viewModel.returnToPreviousAfterConfirmation) {
+                            navigator.pop(true);
+                          } else {
+                            navigator.popUntil((route) => route.isFirst);
+                          }
+                        }
                       }
                     },
               style: ElevatedButton.styleFrom(

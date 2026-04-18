@@ -1,32 +1,71 @@
+import 'package:flutter/foundation.dart';
+import 'package:velo_toulouse/model/bike_slot.dart';
 import 'package:velo_toulouse/model/station.dart';
 import 'package:velo_toulouse/ui/states/ride_state.dart';
+import 'package:velo_toulouse/ui/states/subscription_state.dart';
 
-class BikeBookingViewModel {
+class BikeBookingViewModel extends ChangeNotifier {
   final Station station;
   final String slotCode;
   final String? bikeName;
   final String? bikeImage;
   final String? bikeColor;
   final RideState rideState;
+  final SubscriptionState subscriptionState;
+  String _selectedSlotCode;
+  String? _selectedBikeName;
+  String? _selectedBikeColor;
 
   BikeBookingViewModel({
     required this.station,
     required this.slotCode,
     required this.rideState,
+    required this.subscriptionState,
     this.bikeName,
     this.bikeImage,
     this.bikeColor,
-  });
+  })  : _selectedSlotCode = slotCode,
+        _selectedBikeName = bikeName,
+        _selectedBikeColor = bikeColor {
+    final available = availableSlots;
+    if (available.isEmpty) {
+      return;
+    }
+
+    final matching = available.where((slot) => slot.slotNumber == slotCode);
+    final selectedSlot = matching.isNotEmpty ? matching.first : available.first;
+    _selectedSlotCode = selectedSlot.slotNumber;
+    _selectedBikeName = selectedSlot.bikeName;
+    _selectedBikeColor = selectedSlot.bikeColor ?? _extractBikeColor(selectedSlot.bikeName);
+  }
+
+  List<BikeSlot> get availableSlots => station.slots
+      .where(
+        (slot) =>
+            slot.isAvailable &&
+            !rideState.isSlotRented(station.id, slot.slotNumber),
+      )
+      .toList();
 
   String get displayBikeName {
-    if (bikeName?.trim().isNotEmpty == true) {
-      return '$slotCode ${bikeName!.trim()}';
+    if (_selectedBikeName?.trim().isNotEmpty == true) {
+      return '$_selectedSlotCode ${_selectedBikeName!.trim()}';
     }
-    return 'Bike - Slot $slotCode';
+    return 'Bike - Slot $_selectedSlotCode';
   }
 
   String get resolvedBikeColor {
-    return bikeColor ?? _extractBikeColor(bikeName);
+    return _selectedBikeColor ?? _extractBikeColor(_selectedBikeName);
+  }
+
+  bool get hasActiveSubscription => subscriptionState.hasActiveSubscription;
+
+  String get subscriptionSummary {
+    final activePlan = subscriptionState.activeSubscription?.plan;
+    if (activePlan == null) {
+      return 'No active subscription';
+    }
+    return '${activePlan.label}\nRide limit: ${activePlan.rideDuration.inMinutes} min';
   }
 
   String _extractBikeColor(String? name) {
@@ -52,11 +91,35 @@ class BikeBookingViewModel {
     return colorImages[colorLower] ?? 'assets/images/velu_black_bike.jpg';
   }
 
-  void changeBike() {
-    // This will be implemented to open a bike selection modal
+  bool changeBike() {
+    final available = availableSlots;
+    if (available.length <= 1) {
+      return false;
+    }
+
+    final currentIndex = available.indexWhere(
+      (slot) => slot.slotNumber == _selectedSlotCode,
+    );
+    final nextIndex = currentIndex < 0
+        ? 0
+        : (currentIndex + 1) % available.length;
+    final nextSlot = available[nextIndex];
+
+    _selectedSlotCode = nextSlot.slotNumber;
+    _selectedBikeName = nextSlot.bikeName;
+    _selectedBikeColor = nextSlot.bikeColor ?? _extractBikeColor(nextSlot.bikeName);
+    notifyListeners();
+    return true;
   }
 
-  void completeSwipeAndRent() {
-    rideState.startRide(slotCode, station.id);
+  bool completeSwipeAndRent() {
+    final activePlan = subscriptionState.activeSubscription?.plan;
+    if (activePlan == null) {
+      return false;
+    }
+
+    final maxRideDuration = activePlan.rideDuration;
+    rideState.startRide(_selectedSlotCode, station.id, maxRideDuration);
+    return true;
   }
 }
