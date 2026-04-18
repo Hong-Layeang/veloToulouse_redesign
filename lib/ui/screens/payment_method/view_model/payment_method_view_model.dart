@@ -3,8 +3,7 @@ import 'package:velo_toulouse/model/payment_method.dart';
 import 'package:velo_toulouse/model/subscription.dart';
 import 'package:velo_toulouse/ui/states/subscription_state.dart';
 import 'package:velo_toulouse/data/repositories/subscription/subscription_repository.dart';
-
-enum PaymentStatus { initial, processing, success, error }
+import 'package:velo_toulouse/ui/utils/async_value.dart';
 
 class PaymentMethodViewModel extends ChangeNotifier {
   final Subscription plan;
@@ -12,12 +11,13 @@ class PaymentMethodViewModel extends ChangeNotifier {
   final SubscriptionState subscriptionState;
 
   PaymentMethod? _selectedPaymentMethod;
-  PaymentStatus _status = PaymentStatus.initial;
-  String? _errorMessage;
+  AsyncValue<Object?> _paymentValue = AsyncValue<Object?>.success(null);
 
   PaymentMethod? get selectedPaymentMethod => _selectedPaymentMethod;
-  PaymentStatus get status => _status;
-  String? get errorMessage => _errorMessage;
+  AsyncValue<Object?> get paymentValue => _paymentValue;
+  bool get isProcessing => _paymentValue.state == AsyncValueState.loading;
+  bool get isSuccess => _paymentValue.state == AsyncValueState.success;
+  String? get errorMessage => _paymentValue.error?.toString();
 
   PaymentMethodViewModel({
     required this.plan,
@@ -32,15 +32,13 @@ class PaymentMethodViewModel extends ChangeNotifier {
 
   Future<void> processPayment() async {
     if (_selectedPaymentMethod == null) {
-      _status = PaymentStatus.error;
-      _errorMessage = 'Please select a payment method';
+      _paymentValue = AsyncValue<Object?>.error('Please select a payment method');
       notifyListeners();
       return;
     }
 
     try {
-      _status = PaymentStatus.processing;
-      _errorMessage = null;
+      _paymentValue = AsyncValue<Object?>.loading();
       notifyListeners();
 
       // Simulate payment processing
@@ -49,10 +47,9 @@ class PaymentMethodViewModel extends ChangeNotifier {
       // Apply subscription
       await subscriptionRepository.saveActiveSubscriptionId(plan.id);
       subscriptionState.subscribe(plan);
-      _status = PaymentStatus.success;
+      _paymentValue = AsyncValue<Object?>.success(null);
     } catch (e) {
-      _status = PaymentStatus.error;
-      _errorMessage = e.toString();
+      _paymentValue = AsyncValue<Object?>.error(e);
     }
     notifyListeners();
   }

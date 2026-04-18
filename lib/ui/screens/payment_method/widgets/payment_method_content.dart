@@ -5,6 +5,7 @@ import 'package:velo_toulouse/model/confirmation_type.dart';
 import 'package:velo_toulouse/ui/screens/payment_method/view_model/payment_method_view_model.dart';
 import 'package:velo_toulouse/ui/screens/confirmation/confirmation_screen.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
+import 'package:velo_toulouse/ui/utils/async_value.dart';
 
 class PaymentMethodContent extends StatelessWidget {
   final bool returnToPreviousAfterConfirmation;
@@ -65,12 +66,12 @@ class PaymentMethodContent extends StatelessWidget {
             width: double.infinity,
             height: 52,
             child: ElevatedButton(
-              onPressed: viewModel.status == PaymentStatus.processing
+              onPressed: viewModel.isProcessing
                   ? null
                   : () async {
                       final navigator = Navigator.of(context);
                       await viewModel.processPayment();
-                      if (viewModel.status == PaymentStatus.success && context.mounted) {
+                      if (viewModel.isSuccess && context.mounted) {
                         final confirmed = await navigator.push<bool>(
                           MaterialPageRoute(
                             builder: (_) => ConfirmationScreen(
@@ -102,7 +103,7 @@ class PaymentMethodContent extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              child: viewModel.status == PaymentStatus.processing
+              child: viewModel.isProcessing
                   ? const SizedBox(
                       width: 20,
                       height: 20,
@@ -114,6 +115,18 @@ class PaymentMethodContent extends StatelessWidget {
                   : const Text('Continue'),
             ),
           ),
+          if (viewModel.paymentValue.state == AsyncValueState.error) ...[
+            const SizedBox(height: 12),
+            Text(
+              viewModel.errorMessage ?? 'Payment failed',
+              style: const TextStyle(
+                color: AppTheme.red,
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
           const SizedBox(height: 24),
         ],
       ),
