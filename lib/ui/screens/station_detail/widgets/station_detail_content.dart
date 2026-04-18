@@ -211,26 +211,11 @@ class StationDetailContent extends StatelessWidget {
                         color: const Color(0xFFF4F8FA),
                         borderRadius: BorderRadius.circular(16),
                       ),
-                      child: slot.bikeImage != null
-                          ? ClipRRect(
-                              borderRadius: BorderRadius.circular(16),
-                              child: Image.network(
-                                slot.bikeImage!,
-                                fit: BoxFit.contain,
-                                errorBuilder: (context, error, stackTrace) {
-                                  return const Icon(
-                                    Icons.pedal_bike,
-                                    size: 40,
-                                    color: Color(0xFF0D5264),
-                                  );
-                                },
-                              ),
-                            )
-                          : const Icon(
-                              Icons.pedal_bike,
-                              size: 40,
-                              color: Color(0xFF0D5264),
-                            ),
+                      child: const Icon(
+                        Icons.pedal_bike,
+                        size: 40,
+                        color: Color(0xFF0D5264),
+                      ),
                     ),
                     const SizedBox(width: 14),
                     Expanded(
@@ -281,7 +266,6 @@ class StationDetailContent extends StatelessWidget {
                                 station: station,
                                 slotCode: slot.code,
                                 bikeName: slot.bikeName,
-                                bikeColor: slot.bikeColor,
                               ),
                             ),
                           );

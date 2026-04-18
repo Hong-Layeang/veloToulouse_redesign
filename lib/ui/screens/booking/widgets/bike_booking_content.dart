@@ -88,19 +88,12 @@ class BikeBookingContent extends StatelessWidget {
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(14),
-                        child: Image.asset(
-                          viewModel.getColorImagePath(viewModel.resolvedBikeColor),
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) {
-                            return const Center(
-                              child: Icon(
-                                Icons.directions_bike,
-                                size: 80,
-                                color: AppTheme.primary,
-                              ),
-                            );
-                          },
+                        child: const Center(
+                          child: Icon(
+                            Icons.directions_bike,
+                            size: 80,
+                            color: AppTheme.primary,
+                          ),
                         ),
                       ),
                     ),

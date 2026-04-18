@@ -6,8 +6,6 @@ class BikeSlotDTO {
   final bool isAvailable;
   final String? bikeId;
   final String? bikeName;
-  final String? bikeImage;
-  final String? bikeColor;
 
   BikeSlotDTO({
     required this.id,
@@ -15,8 +13,6 @@ class BikeSlotDTO {
     required this.isAvailable,
     this.bikeId,
     this.bikeName,
-    this.bikeImage,
-    this.bikeColor,
   });
 
   factory BikeSlotDTO.fromJson(Map<String, dynamic> json) {
@@ -26,8 +22,6 @@ class BikeSlotDTO {
       isAvailable: json['isAvailable'],
       bikeId: json['bikeId'],
       bikeName: json['bikeName'],
-      bikeImage: json['bikeImage'],
-      bikeColor: json['bikeColor'],
     );
   }
 
@@ -37,8 +31,6 @@ class BikeSlotDTO {
     'isAvailable': isAvailable,
     'bikeId': bikeId,
     'bikeName': bikeName,
-    'bikeImage': bikeImage,
-    'bikeColor': bikeColor,
   };
 
   BikeSlot toModel() => BikeSlot(
@@ -47,7 +39,5 @@ class BikeSlotDTO {
     isAvailable: isAvailable,
     bikeId: bikeId,
     bikeName: bikeName,
-    bikeImage: bikeImage,
-    bikeColor: bikeColor,
   );
 }

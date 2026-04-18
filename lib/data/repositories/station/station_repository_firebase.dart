@@ -115,7 +115,6 @@ class StationRepositoryFirebase implements StationRepository {
           isAvailable: slotData['isAvailable'] as bool? ?? false,
           bikeId: slotData['bikeId'] as String?,
           bikeName: slotData['bikeName'] as String?,
-          bikeImage: slotData['bikeImage'] as String?,
         ),
       );
     }

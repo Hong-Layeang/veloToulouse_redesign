@@ -20,25 +20,12 @@ class StationDetailViewModel extends ChangeNotifier {
         (slot) => SlotView(
           code: slot.slotNumber,
           bikeName: slot.bikeName,
-          bikeImage: slot.bikeImage,
-          bikeColor: slot.bikeColor ?? _extractBikeColor(slot.bikeName),
         ),
       )
       .toList();
 
   int get availableBikesCount => availableSlots.length;
   void _onRideStateChanged() => notifyListeners();
-
-  String? _extractBikeColor(String? bikeName) {
-    final normalized = bikeName?.toLowerCase();
-    if (normalized == null || normalized.isEmpty) return null;
-
-    const supportedColors = ['black', 'blue', 'green', 'red', 'yellow'];
-    for (final color in supportedColors) {
-      if (normalized.contains(color)) return color;
-    }
-    return null;
-  }
 
   @override
   void dispose() {
@@ -51,13 +38,9 @@ class StationDetailViewModel extends ChangeNotifier {
 class SlotView {
   final String code;
   final String? bikeName;
-  final String? bikeImage;
-  final String? bikeColor;
 
   SlotView({
     required this.code,
     required this.bikeName,
-    required this.bikeImage,
-    required this.bikeColor,
   });
 }

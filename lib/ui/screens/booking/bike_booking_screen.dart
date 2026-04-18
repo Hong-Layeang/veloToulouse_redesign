@@ -10,14 +10,12 @@ class BikeBookingScreen extends StatelessWidget {
   final Station station;
   final String slotCode;
   final String? bikeName;
-  final String? bikeColor;
 
   const BikeBookingScreen({
     super.key,
     required this.station,
     required this.slotCode,
     this.bikeName,
-    this.bikeColor,
   });
 
   @override
@@ -27,7 +25,6 @@ class BikeBookingScreen extends StatelessWidget {
         station: station,
         slotCode: slotCode,
         bikeName: bikeName,
-        bikeColor: bikeColor,
         rideState: context.read<RideState>(),
         subscriptionState: context.read<SubscriptionState>(),
       ),

@@ -217,13 +217,6 @@ class StationRepositoryMock implements StationRepository {
       'Velo Green',
       'Velo Black',
     ];
-    final List<String> bikeImages = <String>[
-      'https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Redbikes.jpg',
-      'https://thumbnails.thecrimson.com/photos/2022/11/30/233645_1360004.JPG.2000x1333_q95_crop-smart_upscale.jpg',
-      'https://vanderbilthustler.com/wp-content/uploads/2018/03/IMG-7187.jpg',
-      'https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Greenbikes.jpg',
-      'https://www.cincinnatiexperience.com/wp-content/uploads/2020/05/Cincy-Blackbikes.jpg',
-    ];
 
     for (int i = 0; i < totalSlots; i++) {
       final String prefix = prefixes[i ~/ 5];
@@ -239,7 +232,6 @@ class StationRepositoryMock implements StationRepository {
           isAvailable: isAvailable,
           bikeId: 'bike_${i + 1}',
           bikeName: bikeNames[bikeIndex],
-          bikeImage: bikeImages[bikeIndex],
         ),
       );
     }

@@ -7,8 +7,6 @@ class BikeSlot {
   final Bike? bike;
   final String? bikeId;
   final String? bikeName;
-  final String? bikeImage;
-  final String? bikeColor;
 
   const BikeSlot({
     required this.id,
@@ -17,12 +15,10 @@ class BikeSlot {
     this.bike,
     this.bikeId,
     this.bikeName,
-    this.bikeImage,
-    this.bikeColor,
   });
 
   @override
   String toString() {
-    return 'BikeSlot(id: $id, slotNumber: $slotNumber, isAvailable: $isAvailable, bikeId: $bikeId, bikeName: $bikeName, bikeColor: $bikeColor, bike: $bike)';
+    return 'BikeSlot(id: $id, slotNumber: $slotNumber, isAvailable: $isAvailable, bikeId: $bikeId, bikeName: $bikeName, bike: $bike)';
   }
 }

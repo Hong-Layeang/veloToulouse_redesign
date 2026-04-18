@@ -3,13 +3,11 @@ import 'package:velo_toulouse/model/bike_slot.dart';
 
 class BikeDto {
   static const String nameKey = 'name';
-  static const String imageUrlKey = 'imageUrl';
 
   static Bike fromJson(String id, Map<String, dynamic> json) {
     return Bike(
       id: id,
       name: (json[nameKey] as String?) ?? '',
-      imageUrl: (json[imageUrlKey] as String?) ?? '',
     );
   }
 }
@@ -19,12 +17,10 @@ class BikeSlotDto {
   static const String isAvailableKey = 'isAvailable';
   static const String bikeIdKey = 'bikeId';
   static const String bikeNameKey = 'bikeName';
-  static const String bikeImageKey = 'bikeImage';
 
   static BikeSlot fromJson(String id, Map<String, dynamic> json) {
     final bikeId = json[bikeIdKey] as String?;
     final bikeName = json[bikeNameKey] as String?;
-    final bikeImage = json[bikeImageKey] as String?;
 
     return BikeSlot(
       id: id,
@@ -32,9 +28,8 @@ class BikeSlotDto {
       isAvailable: (json[isAvailableKey] as bool?) ?? false,
       bikeId: bikeId,
       bikeName: bikeName,
-      bikeImage: bikeImage,
-      bike: bikeId != null && bikeName != null && bikeImage != null
-          ? Bike(id: bikeId, name: bikeName, imageUrl: bikeImage)
+      bike: bikeId != null && bikeName != null
+          ? Bike(id: bikeId, name: bikeName)
           : null,
     );
   }
