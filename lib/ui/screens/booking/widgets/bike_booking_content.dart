@@ -154,19 +154,7 @@ class BikeBookingContent extends StatelessWidget {
                             ),
                           ),
                           TextButton(
-                            onPressed: () {
-                              final changed = viewModel.changeBike();
-                              if (!changed) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('No other bikes available at this station.'),
-                                  ),
-                                );
-                                return;
-                              }
-
-                              Navigator.of(context).pop();
-                            },
+                            onPressed: () => Navigator.of(context).pop(),
                             child: const Text(
                               'Change',
                               style: TextStyle(

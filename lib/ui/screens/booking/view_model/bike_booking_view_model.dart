@@ -16,6 +16,10 @@ class BikeBookingViewModel extends ChangeNotifier {
   String? _selectedBikeName;
   String? _selectedBikeColor;
 
+  void _onSubscriptionStateChanged() {
+    notifyListeners();
+  }
+
   BikeBookingViewModel({
     required this.station,
     required this.slotCode,
@@ -27,6 +31,8 @@ class BikeBookingViewModel extends ChangeNotifier {
   })  : _selectedSlotCode = slotCode,
         _selectedBikeName = bikeName,
         _selectedBikeColor = bikeColor {
+    subscriptionState.addListener(_onSubscriptionStateChanged);
+
     final available = availableSlots;
     if (available.isEmpty) {
       return;
@@ -121,5 +127,11 @@ class BikeBookingViewModel extends ChangeNotifier {
     final maxRideDuration = activePlan.rideDuration;
     rideState.startRide(_selectedSlotCode, station.id, maxRideDuration);
     return true;
+  }
+
+  @override
+  void dispose() {
+    subscriptionState.removeListener(_onSubscriptionStateChanged);
+    super.dispose();
   }
 }
