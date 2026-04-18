@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:velo_toulouse/model/station.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
+import 'package:velo_toulouse/ui/states/ride_state.dart';
 import '../../booking/bike_booking_screen.dart';
 import '../view_model/station_detail_view_model.dart';
 
@@ -11,6 +12,7 @@ class StationDetailContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<StationDetailViewModel>();
+    final rideState = context.watch<RideState>();
     final width = MediaQuery.sizeOf(context).width;
     final crossAxisCount = _getGridCrossAxisCount(width);
 
@@ -155,6 +157,16 @@ class StationDetailContent extends StatelessWidget {
                         itemBuilder: (context, index) => _ModernSlotCard(
                           slot: viewModel.availableSlots[index],
                           onTap: () {
+                            if (rideState.hasActiveRide) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(rideState.activeRideMessage),
+                                  behavior: SnackBarBehavior.floating,
+                                ),
+                              );
+                              return;
+                            }
+
                             _showBookingConfirmationSheet(
                               context,
                               viewModel.availableSlots[index],

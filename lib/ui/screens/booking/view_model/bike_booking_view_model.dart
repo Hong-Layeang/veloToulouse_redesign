@@ -55,6 +55,10 @@ class BikeBookingViewModel extends ChangeNotifier {
 
   bool get hasActiveSubscription => subscriptionState.hasActiveSubscription;
 
+  bool get hasActiveRide => rideState.hasActiveRide;
+
+  String get activeRideMessage => rideState.activeRideMessage;
+
   String get subscriptionSummary {
     final activePlan = subscriptionState.activeSubscription?.plan;
     if (activePlan == null) {
@@ -84,14 +88,17 @@ class BikeBookingViewModel extends ChangeNotifier {
   }
 
   bool completeSwipeAndRent() {
+    if (rideState.hasActiveRide) {
+      return false;
+    }
+
     final activePlan = subscriptionState.activeSubscription?.plan;
     if (activePlan == null) {
       return false;
     }
 
     final maxRideDuration = activePlan.rideDuration;
-    rideState.startRide(_selectedSlotCode, station.id, maxRideDuration);
-    return true;
+    return rideState.startRide(_selectedSlotCode, station.id, maxRideDuration);
   }
 
   @override

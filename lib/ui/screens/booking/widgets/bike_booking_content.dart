@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
 import 'package:velo_toulouse/ui/utils/animation_utils.dart';
 import 'package:velo_toulouse/ui/screens/subscription/subscriptions_screen.dart';
+import 'package:velo_toulouse/ui/states/ride_state.dart';
 import '../view_model/bike_booking_view_model.dart';
 
 class BikeBookingContent extends StatelessWidget {
@@ -11,6 +12,7 @@ class BikeBookingContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = context.watch<BikeBookingViewModel>();
+    final rideState = context.watch<RideState>();
 
     return Scaffold(
       backgroundColor: AppTheme.background,
@@ -38,17 +40,11 @@ class BikeBookingContent extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: AppTheme.surface,
                         borderRadius: BorderRadius.circular(14),
-                        border: Border.all(
-                          color: AppTheme.divider,
-                          width: 1.2,
-                        ),
+                        border: Border.all(color: AppTheme.divider, width: 1.2),
                       ),
                       child: Row(
                         children: [
-                          Icon(
-                            Icons.search,
-                            color: AppTheme.textSecondary,
-                          ),
+                          Icon(Icons.search, color: AppTheme.textSecondary),
                           const SizedBox(width: 10),
                           Expanded(
                             child: Text(
@@ -216,6 +212,18 @@ class BikeBookingContent extends StatelessWidget {
               child: SwipeToRentControl(
                 onSwipeComplete: () async {
                   final navigator = Navigator.of(context);
+
+                  if (rideState.hasActiveRide) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(viewModel.activeRideMessage),
+                        behavior: SnackBarBehavior.floating,
+                      ),
+                    );
+                    return;
+                  }
+
+                  // check subscription before completing swipe action
                   if (!viewModel.hasActiveSubscription) {
                     await navigator.push<bool>(
                       MaterialPageRoute(
@@ -224,14 +232,17 @@ class BikeBookingContent extends StatelessWidget {
                         ),
                       ),
                     );
-                    return;
+                    return; // stop here, until uswer buy pass
                   }
-
+                  //try to rent
                   final rented = viewModel.completeSwipeAndRent();
                   if (!rented || !context.mounted) return;
+                  // navigate to home and show active ride
                   navigator.popUntil((route) => route.isFirst);
                 },
-                label: 'Swipe to Rent',
+                label: rideState.hasActiveRide
+                    ? 'End current ride first'
+                    : 'Swipe to Rent',
               ),
             ),
           ],

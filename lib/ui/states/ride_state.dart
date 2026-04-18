@@ -41,8 +41,16 @@ class RideState extends ChangeNotifier {
     return _rentedSlotKeys.contains(_slotKey(stationId, slotId));
   }
 
+  String get activeRideMessage {
+    return 'You are already riding a bike. End the current ride before unlocking another one.';
+  }
+
   // Start a new ride when bike is booked
-  void startRide(String bikeSlotId, String stationId, [Duration? maxDuration]) {
+  bool startRide(String bikeSlotId, String stationId, [Duration? maxDuration]) {
+    if (hasActiveRide) {
+      return false;
+    }
+
     _currentRide = ActiveRide(
       bikeSlotId: bikeSlotId,
       stationId: stationId,
@@ -52,6 +60,7 @@ class RideState extends ChangeNotifier {
     _rentedSlotKeys.add(_slotKey(stationId, bikeSlotId));
     _startTicker();
     notifyListeners();
+    return true;
   }
 
   // End the current ride
