@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:velo_toulouse/model/station.dart';
 import 'package:velo_toulouse/data/repositories/station/station_repository.dart';
-
-enum HomeStatus { loading, success, error }
+import 'package:velo_toulouse/ui/utils/async_value.dart';
 
 class HomeViewModel extends ChangeNotifier {
   final StationRepository stationRepository;
 
-  HomeStatus _status = HomeStatus.loading;
-  List<Station> _stations = [];
-  String? _errorMessage;
+  AsyncValue<List<Station>> _stationsValue = AsyncValue<List<Station>>.loading();
   int _currentTabIndex = 0;
 
-  HomeStatus get status => _status;
-  List<Station> get stations => _stations;
-  String? get errorMessage => _errorMessage;
+  AsyncValue<List<Station>> get stationsValue => _stationsValue;
+  List<Station> get stations => _stationsValue.data ?? const <Station>[];
+  String? get errorMessage => _stationsValue.error?.toString();
   int get currentTabIndex => _currentTabIndex;
 
   HomeViewModel({required this.stationRepository}) {
@@ -22,15 +19,14 @@ class HomeViewModel extends ChangeNotifier {
   }
 
   Future<void> _init() async {
-    try {
-      _status = HomeStatus.loading;
-      notifyListeners();
+    _stationsValue = AsyncValue<List<Station>>.loading();
+    notifyListeners();
 
-      _stations = await stationRepository.fetchStations();
-      _status = HomeStatus.success;
+    try {
+      final stations = await stationRepository.fetchStations();
+      _stationsValue = AsyncValue<List<Station>>.success(stations);
     } catch (e) {
-      _status = HomeStatus.error;
-      _errorMessage = e.toString();
+      _stationsValue = AsyncValue<List<Station>>.error(e);
     }
     notifyListeners();
   }

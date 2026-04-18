@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:velo_toulouse/model/station.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
-import 'package:velo_toulouse/ui/states/ride_state.dart';
 import '../../booking/bike_booking_screen.dart';
 import '../view_model/station_detail_view_model.dart';
 
@@ -10,10 +10,9 @@ class StationDetailContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<StationDetailViewModel>();
-    final rideState = context.watch<RideState>();
+    final viewModel = context.read<StationDetailViewModel>();
     final width = MediaQuery.sizeOf(context).width;
-    final crossAxisCount = viewModel.getGridCrossAxisCount(width);
+    final crossAxisCount = _getGridCrossAxisCount(width);
 
     return Scaffold(
       backgroundColor: AppTheme.background,
@@ -155,20 +154,7 @@ class StationDetailContent extends StatelessWidget {
                         ),
                         itemBuilder: (context, index) => _ModernSlotCard(
                           slot: viewModel.availableSlots[index],
-                          station: viewModel.station,
                           onTap: () {
-                            if (rideState.hasActiveRide) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text(
-                                    'End your current ride before unlocking another bike.',
-                                  ),
-                                  behavior: SnackBarBehavior.floating,
-                                ),
-                              );
-                              return;
-                            }
-
                             _showBookingConfirmationSheet(
                               context,
                               viewModel.availableSlots[index],
@@ -190,7 +176,7 @@ class StationDetailContent extends StatelessWidget {
   void _showBookingConfirmationSheet(
     BuildContext context,
     SlotView slot,
-    dynamic station,
+    Station station,
   ) {
     showModalBottomSheet<void>(
       context: context,
@@ -330,14 +316,18 @@ class StationDetailContent extends StatelessWidget {
   }
 }
 
+int _getGridCrossAxisCount(double width) {
+  if (width >= 560) return 4;
+  if (width >= 390) return 3;
+  return 2;
+}
+
 class _ModernSlotCard extends StatelessWidget {
   final SlotView slot;
-  final dynamic station;
   final VoidCallback onTap;
 
   const _ModernSlotCard({
     required this.slot,
-    required this.station,
     required this.onTap,
   });
 

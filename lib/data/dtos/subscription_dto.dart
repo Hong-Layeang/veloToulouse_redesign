@@ -1,48 +1,22 @@
-import '../../model/subscription.dart';
+import 'package:velo_toulouse/model/subscription.dart';
 
-class SubscriptionDTO {
-  final String id;
-  final String label;
-  final String description;
-  final double price;
-  final int durationSeconds;
-  final int rideDurationSeconds;
+class SubscriptionDto {
+  static const String labelKey = 'label';
+  static const String descriptionKey = 'description';
+  static const String priceKey = 'price';
+  static const String durationInDaysKey = 'durationInDays';
+  static const String rideDurationInMinutesKey = 'rideDurationInMinutes';
 
-  SubscriptionDTO({
-    required this.id,
-    required this.label,
-    required this.description,
-    required this.price,
-    required this.durationSeconds,
-    required this.rideDurationSeconds,
-  });
-
-  factory SubscriptionDTO.fromJson(Map<String, dynamic> json) {
-    return SubscriptionDTO(
-      id: json['id'],
-      label: json['label'],
-      description: json['description'],
-      price: (json['price'] as num).toDouble(),
-      durationSeconds: json['durationSeconds'],
-      rideDurationSeconds: json['rideDurationSeconds'],
+  static Subscription fromJson(String id, Map<String, dynamic> json) {
+    return Subscription(
+      id: id,
+      label: (json[labelKey] as String?) ?? '',
+      description: (json[descriptionKey] as String?) ?? '',
+      price: ((json[priceKey] as num?) ?? 0).toDouble(),
+      duration: Duration(days: ((json[durationInDaysKey] as num?) ?? 0).toInt()),
+      rideDuration: Duration(
+        minutes: ((json[rideDurationInMinutesKey] as num?) ?? 30).toInt(),
+      ),
     );
   }
-
-  Map<String, dynamic> toJson() => {
-    'id': id,
-    'label': label,
-    'description': description,
-    'price': price,
-    'durationSeconds': durationSeconds,
-    'rideDurationSeconds': rideDurationSeconds,
-  };
-
-  Subscription toModel() => Subscription(
-    id: id,
-    label: label,
-    description: description,
-    price: price,
-    duration: Duration(seconds: durationSeconds),
-    rideDuration: Duration(seconds: rideDurationSeconds),
-  );
 }

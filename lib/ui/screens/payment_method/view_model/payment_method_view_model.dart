@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:velo_toulouse/model/payment_method.dart';
 import 'package:velo_toulouse/model/subscription.dart';
 import 'package:velo_toulouse/ui/states/subscription_state.dart';
 import 'package:velo_toulouse/data/repositories/subscription/subscription_repository.dart';
-
-enum PaymentMethod { applePay, googlePay, creditCard }
 
 enum PaymentStatus { initial, processing, success, error }
 
@@ -35,6 +34,7 @@ class PaymentMethodViewModel extends ChangeNotifier {
 
   Future<void> processPayment() async {
     if (_selectedPaymentMethod == null) {
+      _status = PaymentStatus.error;
       _errorMessage = 'Please select a payment method';
       notifyListeners();
       return;
@@ -42,12 +42,14 @@ class PaymentMethodViewModel extends ChangeNotifier {
 
     try {
       _status = PaymentStatus.processing;
+      _errorMessage = null;
       notifyListeners();
 
       // Simulate payment processing
       await Future.delayed(const Duration(seconds: 2));
 
       // Apply subscription
+      await subscriptionRepository.saveActiveSubscriptionId(plan.id);
       subscriptionState.subscribe(plan);
       _status = PaymentStatus.success;
       onSubscribed?.call();

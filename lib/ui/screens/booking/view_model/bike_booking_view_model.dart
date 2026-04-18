@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:velo_toulouse/model/station.dart';
 import 'package:velo_toulouse/ui/states/ride_state.dart';
 
-class BikeBookingViewModel extends ChangeNotifier {
+class BikeBookingViewModel {
   final Station station;
   final String slotCode;
   final String? bikeName;
@@ -41,12 +40,6 @@ class BikeBookingViewModel extends ChangeNotifier {
     return 'black';
   }
 
-  bool get canStartRide => !rideState.hasActiveRide;
-
-  String get activeRideMessage {
-    return 'End your current ride first to unlock another bike.';
-  }
-
   String getColorImagePath(String? color) {
     final colorLower = color?.toLowerCase().trim() ?? 'black';
     const colorImages = {
@@ -61,14 +54,9 @@ class BikeBookingViewModel extends ChangeNotifier {
 
   void changeBike() {
     // This will be implemented to open a bike selection modal
-    notifyListeners();
   }
 
-  bool completeSwipeAndRent() {
-    final bool started = rideState.startRide(slotCode, station.id);
-    if (started) {
-      notifyListeners();
-    }
-    return started;
+  void completeSwipeAndRent() {
+    rideState.startRide(slotCode, station.id);
   }
 }

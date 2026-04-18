@@ -8,7 +8,7 @@ class ConfirmationContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<ConfirmationViewModel>();
+    final viewModel = context.read<ConfirmationViewModel>();
 
     return Scaffold(
       body: Padding(
@@ -38,8 +38,8 @@ class ConfirmationContent extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 32),
-            Text(
-              viewModel.title,
+            const Text(
+              'Bike Unlocked',
               style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.w700,
@@ -47,8 +47,8 @@ class ConfirmationContent extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              viewModel.subtitle,
+            const Text(
+              'Enjoy your ride!!',
               style: TextStyle(
                 fontSize: 16,
                 color: AppTheme.textSecondary,

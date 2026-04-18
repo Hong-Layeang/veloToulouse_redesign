@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:velo_toulouse/model/station.dart';
 
-class StationDetailViewModel extends ChangeNotifier {
+class StationDetailViewModel {
   final Station station;
   
   late List<SlotView> _availableSlots;
@@ -38,16 +37,6 @@ class StationDetailViewModel extends ChangeNotifier {
     return null;
   }
 
-  int getGridCrossAxisCount(double width) {
-    if (width >= 560) return 4;
-    if (width >= 390) return 3;
-    return 2;
-  }
-
-  void selectSlot(SlotView slot) {
-    // This can be expanded for booking logic
-    notifyListeners();
-  }
 }
 
 class SlotView {

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
 import 'package:velo_toulouse/ui/utils/animation_utils.dart';
-import 'package:velo_toulouse/ui/states/ride_state.dart';
 import '../view_model/bike_booking_view_model.dart';
 
 class BikeBookingContent extends StatelessWidget {
@@ -10,8 +9,7 @@ class BikeBookingContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<BikeBookingViewModel>();
-    final rideState = context.watch<RideState>();
+    final viewModel = context.read<BikeBookingViewModel>();
 
     return Scaffold(
       backgroundColor: AppTheme.background,
@@ -222,28 +220,8 @@ class BikeBookingContent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 8, 20, 18),
               child: SwipeToRentControl(
-                enabled: viewModel.canStartRide && !rideState.hasActiveRide,
-                blockedMessage: viewModel.activeRideMessage,
-                onSwipeBlocked: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(viewModel.activeRideMessage),
-                      behavior: SnackBarBehavior.floating,
-                    ),
-                  );
-                },
                 onSwipeComplete: () {
-                  final bool started = viewModel.completeSwipeAndRent();
-                  if (!started) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(viewModel.activeRideMessage),
-                        behavior: SnackBarBehavior.floating,
-                      ),
-                    );
-                    return;
-                  }
-
+                  viewModel.completeSwipeAndRent();
                   // Navigate back after swiping
                   Future.delayed(const Duration(milliseconds: 500), () {
                     if (context.mounted) {
@@ -251,9 +229,7 @@ class BikeBookingContent extends StatelessWidget {
                     }
                   });
                 },
-                label: rideState.hasActiveRide
-                    ? 'End your current ride first'
-                    : 'Swipe to Rent',
+                label: 'Swipe to Rent',
               ),
             ),
           ],

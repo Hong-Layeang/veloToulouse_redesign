@@ -24,26 +24,8 @@ class RideState extends ChangeNotifier {
   bool get hasActiveRide => _currentRide != null;
   Duration get rideElapsedTime => _currentRide?.elapsedTime ?? Duration.zero;
 
-  void _startTicker() {
-    _ticker?.cancel();
-    _ticker = Timer.periodic(const Duration(seconds: 1), (_) {
-      if (hasActiveRide) {
-        notifyListeners();
-      }
-    });
-  }
-
-  void _stopTicker() {
-    _ticker?.cancel();
-    _ticker = null;
-  }
-
   // Start a new ride when bike is booked
-  bool startRide(String bikeSlotId, String stationId) {
-    if (hasActiveRide) {
-      return false;
-    }
-
+  void startRide(String bikeSlotId, String stationId) {
     _currentRide = ActiveRide(
       bikeSlotId: bikeSlotId,
       stationId: stationId,
@@ -51,7 +33,6 @@ class RideState extends ChangeNotifier {
     );
     _startTicker();
     notifyListeners();
-    return true;
   }
 
   // End the current ride
@@ -61,16 +42,6 @@ class RideState extends ChangeNotifier {
     notifyListeners();
   }
 
-  Duration get currentRideDuration {
-    return _currentRide?.elapsedTime ?? Duration.zero;
-  }
-
-  @override
-  void dispose() {
-    _stopTicker();
-    super.dispose();
-  }
-
   // Get current ride duration
   String getRideDurationString() {
     if (_currentRide == null) return '00:00';
@@ -78,5 +49,24 @@ class RideState extends ChangeNotifier {
     final minutes = duration.inMinutes;
     final seconds = duration.inSeconds % 60;
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
+  }
+
+  void _startTicker() {
+    _ticker?.cancel();
+    _ticker = Timer.periodic(const Duration(seconds: 1), (_) {
+      if (_currentRide == null) return;
+      notifyListeners();
+    });
+  }
+
+  void _stopTicker() {
+    _ticker?.cancel();
+    _ticker = null;
+  }
+
+  @override
+  void dispose() {
+    _stopTicker();
+    super.dispose();
   }
 }

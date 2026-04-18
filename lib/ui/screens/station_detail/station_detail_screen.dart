@@ -11,7 +11,7 @@ class StationDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<StationDetailViewModel>(
+    return Provider<StationDetailViewModel>(
       create: (context) => StationDetailViewModel(station: station),
       child: const StationDetailContent(),
     );

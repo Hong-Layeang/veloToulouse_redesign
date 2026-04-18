@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:velo_toulouse/model/subscription.dart';
 import 'package:velo_toulouse/ui/screens/subscription/view_model/subscriptions_view_model.dart';
 import 'package:velo_toulouse/ui/screens/payment_method/payment_method_screen.dart';
-import 'package:velo_toulouse/ui/states/subscription_state.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
+import 'package:velo_toulouse/ui/utils/async_value.dart';
 
 class SubscriptionsContent extends StatelessWidget {
   const SubscriptionsContent({super.key});
@@ -12,27 +11,23 @@ class SubscriptionsContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final subscriptionsViewModel = context.watch<SubscriptionsViewModel>();
-    final subscriptionState = context.watch<SubscriptionState>();
 
-    return _buildBody(context, subscriptionsViewModel, subscriptionState);
+    return _buildBody(context, subscriptionsViewModel);
   }
 
-  Widget _buildBody(
-    BuildContext context,
-    SubscriptionsViewModel viewModel,
-    SubscriptionState subscriptionState,
-  ) {
-    final Subscription? selectedPlan = viewModel.selectedPlan;
-    switch (viewModel.status) {
-      case SubscriptionsStatus.loading:
-        return const Scaffold(body: Center(child: CircularProgressIndicator()));
-      case SubscriptionsStatus.error:
+  Widget _buildBody(BuildContext context, SubscriptionsViewModel viewModel) {
+    switch (viewModel.plansValue.state) {
+      case AsyncValueState.loading:
+        return const Scaffold(
+          body: Center(child: CircularProgressIndicator()),
+        );
+      case AsyncValueState.error:
         return Scaffold(
           body: Center(
             child: Text(viewModel.errorMessage ?? 'An error occurred'),
           ),
         );
-      case SubscriptionsStatus.success:
+      case AsyncValueState.success:
         return Scaffold(
           body: CustomScrollView(
             slivers: [
@@ -77,10 +72,10 @@ class SubscriptionsContent extends StatelessWidget {
                             ),
                             SizedBox(height: 10),
                             Text(
-                              'Unlock bikes with a tap and enjoy seamless rides across the city.',
+                              'All plans are loaded from realtime Firebase data.',
                               style: TextStyle(
                                 color: Colors.white70,
-                                fontSize: 15,
+                                fontSize: 14,
                                 height: 1.4,
                               ),
                             ),
@@ -95,35 +90,24 @@ class SubscriptionsContent extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 28),
                 sliver: SliverList(
                   delegate: SliverChildListDelegate.fixed([
-                    _SubscriptionSummaryCard(
-                      activePlanId: subscriptionState.activeSubscription?.plan.id ?? '',
-                      activeLabel: subscriptionState.hasActiveSubscription
-                          ? subscriptionState.activeSubscription!.plan.label
-                          : selectedPlan?.label ?? 'No active pass selected',
-                      activeSubtitle: subscriptionState.hasActiveSubscription
-                          ? 'Valid until ${subscriptionState.activeSubscription!.expirationDate.toLocal().toString().split('.').first}'
-                          : selectedPlan != null
-                              ? 'You selected ${selectedPlan.label}. Continue to payment to activate it.'
-                              : 'Select a pass below to unlock bikes.',
+                    const _SubscriptionSummaryCard(
+                      activePlanId: '',
+                      activeLabel: 'No active pass',
                     ),
                     const SizedBox(height: 18),
-                    ...(viewModel.plans
-                        .map(
-                          (plan) => _PlanCard(
-                            plan: plan,
-                            isActive: viewModel.selectedPlanId == plan.id,
-                            onSelect: () {
-                              viewModel.selectPlan(plan);
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (_) =>
-                                      PaymentMethodScreen(plan: plan),
-                                ),
-                              );
-                            },
-                          ),
-                        )
-                        .toList()),
+                    ...(viewModel.plans.map(
+                      (plan) => _PlanCard(
+                        plan: plan,
+                        isActive: false,
+                        onSelect: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => PaymentMethodScreen(plan: plan),
+                            ),
+                          );
+                        },
+                      ),
+                    ).toList()),
                   ]),
                 ),
               ),
@@ -137,12 +121,10 @@ class SubscriptionsContent extends StatelessWidget {
 class _SubscriptionSummaryCard extends StatelessWidget {
   final String activePlanId;
   final String activeLabel;
-  final String activeSubtitle;
 
   const _SubscriptionSummaryCard({
     required this.activePlanId,
     required this.activeLabel,
-    required this.activeSubtitle,
   });
 
   @override
@@ -161,7 +143,7 @@ class _SubscriptionSummaryCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Pass Status',
+            'Active Pass',
             style: TextStyle(
               color: AppTheme.textSecondary,
               fontSize: 11,
@@ -176,15 +158,6 @@ class _SubscriptionSummaryCard extends StatelessWidget {
               color: AppTheme.textPrimary,
               fontSize: 18,
               fontWeight: FontWeight.w700,
-            ),
-          ),
-          const SizedBox(height: 6),
-          Text(
-            activeSubtitle,
-            style: const TextStyle(
-              color: AppTheme.textSecondary,
-              fontSize: 13,
-              height: 1.4,
             ),
           ),
           if (hasActivePlan) ...[
@@ -295,9 +268,7 @@ class _PlanCard extends StatelessWidget {
             child: ElevatedButton(
               onPressed: onSelect,
               style: ElevatedButton.styleFrom(
-                backgroundColor: isActive
-                    ? AppTheme.primary.withValues(alpha: 0.1)
-                    : AppTheme.primary,
+                backgroundColor: isActive ? AppTheme.primary.withValues(alpha: 0.1) : AppTheme.primary,
                 foregroundColor: isActive ? AppTheme.primary : Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -318,3 +289,4 @@ class _PlanCard extends StatelessWidget {
     );
   }
 }
+
