@@ -4,11 +4,10 @@ import 'package:velo_toulouse/data/repositories/subscription/subscription_reposi
 import 'package:velo_toulouse/ui/screens/subscription/view_model/subscriptions_view_model.dart';
 import 'package:velo_toulouse/ui/screens/subscription/widgets/subscriptions_content.dart';
 
-/// Wrapper screen that creates the ViewModel and provides it to content
-class SubscriptionsScreenWrapper extends StatelessWidget {
+class SubscriptionsScreen extends StatelessWidget {
   final bool returnToPreviousAfterSubscription;
 
-  const SubscriptionsScreenWrapper({
+  const SubscriptionsScreen({
     super.key,
     this.returnToPreviousAfterSubscription = false,
   });
@@ -22,23 +21,6 @@ class SubscriptionsScreenWrapper extends StatelessWidget {
       child: SubscriptionsContent(
         returnToPreviousAfterSubscription: returnToPreviousAfterSubscription,
       ),
-    );
-  }
-}
-
-/// Standalone screen (used when navigating directly)
-class SubscriptionsScreen extends StatelessWidget {
-  final bool returnToPreviousAfterSubscription;
-
-  const SubscriptionsScreen({
-    super.key,
-    this.returnToPreviousAfterSubscription = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SubscriptionsScreenWrapper(
-      returnToPreviousAfterSubscription: returnToPreviousAfterSubscription,
     );
   }
 }

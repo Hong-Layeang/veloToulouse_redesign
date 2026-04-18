@@ -8,15 +8,11 @@ import 'package:velo_toulouse/ui/states/subscription_state.dart';
 
 class PaymentMethodScreen extends StatelessWidget {
   final Subscription plan;
-  final SubscriptionState? subscriptionState;
-  final VoidCallback? onSubscribed;
   final bool returnToPreviousAfterConfirmation;
 
   const PaymentMethodScreen({
     super.key,
     required this.plan,
-    this.subscriptionState,
-    this.onSubscribed,
     this.returnToPreviousAfterConfirmation = false,
   });
 
@@ -27,7 +23,6 @@ class PaymentMethodScreen extends StatelessWidget {
         plan: plan,
         subscriptionRepository: context.read<SubscriptionRepository>(),
         subscriptionState: context.read<SubscriptionState>(),
-        onSubscribed: onSubscribed,
         returnToPreviousAfterConfirmation: returnToPreviousAfterConfirmation,
       ),
       child: const PaymentMethodContent(),

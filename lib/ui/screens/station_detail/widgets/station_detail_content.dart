@@ -281,7 +281,6 @@ class StationDetailContent extends StatelessWidget {
                                 station: station,
                                 slotCode: slot.code,
                                 bikeName: slot.bikeName,
-                                bikeImage: slot.bikeImage,
                                 bikeColor: slot.bikeColor,
                               ),
                             ),

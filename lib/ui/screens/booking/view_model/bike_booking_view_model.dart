@@ -8,7 +8,6 @@ class BikeBookingViewModel extends ChangeNotifier {
   final Station station;
   final String slotCode;
   final String? bikeName;
-  final String? bikeImage;
   final String? bikeColor;
   final RideState rideState;
   final SubscriptionState subscriptionState;
@@ -26,7 +25,6 @@ class BikeBookingViewModel extends ChangeNotifier {
     required this.rideState,
     required this.subscriptionState,
     this.bikeName,
-    this.bikeImage,
     this.bikeColor,
   })  : _selectedSlotCode = slotCode,
         _selectedBikeName = bikeName,

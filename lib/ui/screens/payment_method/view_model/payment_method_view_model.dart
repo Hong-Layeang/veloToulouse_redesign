@@ -10,7 +10,6 @@ class PaymentMethodViewModel extends ChangeNotifier {
   final Subscription plan;
   final SubscriptionRepository subscriptionRepository;
   final SubscriptionState subscriptionState;
-  final VoidCallback? onSubscribed;
   final bool returnToPreviousAfterConfirmation;
 
   PaymentMethod? _selectedPaymentMethod;
@@ -25,7 +24,6 @@ class PaymentMethodViewModel extends ChangeNotifier {
     required this.plan,
     required this.subscriptionRepository,
     required this.subscriptionState,
-    this.onSubscribed,
     this.returnToPreviousAfterConfirmation = false,
   });
 
@@ -54,7 +52,6 @@ class PaymentMethodViewModel extends ChangeNotifier {
       await subscriptionRepository.saveActiveSubscriptionId(plan.id);
       subscriptionState.subscribe(plan);
       _status = PaymentStatus.success;
-      onSubscribed?.call();
     } catch (e) {
       _status = PaymentStatus.error;
       _errorMessage = e.toString();

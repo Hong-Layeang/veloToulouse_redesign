@@ -117,7 +117,7 @@ class HomeContent extends StatelessWidget {
                 index: homeViewModel.currentTabIndex,
                 children: [
                   MapView(stations: homeViewModel.stations),
-                  const SubscriptionsScreenWrapper(),
+                  const SubscriptionsScreen(),
                 ],
               ),
             ),
