@@ -1,52 +1,91 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
 import 'package:velo_toulouse/data/dtos/subscription_dto.dart';
 import 'package:velo_toulouse/data/repositories/firebase_database_config.dart';
 import 'package:velo_toulouse/data/repositories/subscription/subscription_repository.dart';
 import 'package:velo_toulouse/model/subscription.dart';
 
 class SubscriptionRepositoryFirebase implements SubscriptionRepository {
-  SubscriptionRepositoryFirebase({FirebaseDatabase? database, FirebaseApp? app})
-    : _database =
-          database ??
-          FirebaseDatabase.instanceFor(
-            app: app ?? Firebase.app(),
-            databaseURL: FirebaseDatabaseConfig.databaseUrl,
-          );
+  SubscriptionRepositoryFirebase({http.Client? client})
+    : _client = client ?? http.Client();
 
-  final FirebaseDatabase _database;
-
-  DatabaseReference get _activeSubscriptionRef =>
-      _database.ref('appState/activeSubscriptionId');
+  final http.Client _client;
 
   @override
   Future<String?> fetchActiveSubscriptionId() async {
-    final DataSnapshot snapshot = await _activeSubscriptionRef.get();
-    if (!snapshot.exists || snapshot.value == null) {
+    final Uri uri = FirebaseDatabaseConfig.nodeUri('appState/activeSubscriptionId');
+    final http.Response response = await _client.get(
+      uri,
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception(
+        'Failed to load active subscription id (HTTP ${response.statusCode}). '
+        'Check Realtime Database rules and endpoint: $uri',
+      );
+    }
+
+    if (response.body == 'null') {
       return null;
     }
-    return snapshot.value.toString();
+
+    final dynamic value = json.decode(response.body);
+    return value?.toString();
   }
 
   @override
   Future<void> saveActiveSubscriptionId(String subscriptionId) async {
-    await _activeSubscriptionRef.set(subscriptionId);
+    final Uri uri = FirebaseDatabaseConfig.nodeUri('appState/activeSubscriptionId');
+    final http.Response response = await _client.put(
+      uri,
+      headers: <String, String>{'Content-Type': 'application/json'},
+      body: json.encode(subscriptionId),
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception(
+        'Failed to save active subscription id (HTTP ${response.statusCode}). '
+        'Check Realtime Database rules and endpoint: $uri',
+      );
+    }
   }
 
   @override
   Future<void> clearActiveSubscriptionId() async {
-    await _activeSubscriptionRef.remove();
+    final Uri uri = FirebaseDatabaseConfig.nodeUri('appState/activeSubscriptionId');
+    final http.Response response = await _client.delete(
+      uri,
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception(
+        'Failed to clear active subscription id (HTTP ${response.statusCode}). '
+        'Check Realtime Database rules and endpoint: $uri',
+      );
+    }
   }
 
   @override
   Future<List<Subscription>> fetchSubscriptions() async {
-    final DataSnapshot snapshot = await _database.ref('subscriptions').get();
-    if (!snapshot.exists || snapshot.value == null) {
+    final Uri uri = FirebaseDatabaseConfig.nodeUri('subscriptions');
+    final http.Response response = await _client.get(
+      uri,
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception(
+        'Failed to load subscriptions (HTTP ${response.statusCode}). '
+        'Check Realtime Database rules and endpoint: $uri',
+      );
+    }
+
+    if (response.body == 'null') {
       return <Subscription>[];
     }
 
     final Map<String, dynamic> data = Map<String, dynamic>.from(
-      snapshot.value! as Map,
+      json.decode(response.body) as Map,
     );
 
     return data.values

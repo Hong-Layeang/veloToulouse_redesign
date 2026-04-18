@@ -1,5 +1,6 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
 import 'package:velo_toulouse/data/dtos/bike_dto.dart';
 import 'package:velo_toulouse/data/dtos/bike_slot_dto.dart';
 import 'package:velo_toulouse/data/repositories/bike/bike_repository.dart';
@@ -8,25 +9,30 @@ import 'package:velo_toulouse/model/bike.dart';
 import 'package:velo_toulouse/model/bike_slot.dart';
 
 class BikeRepositoryFirebase implements BikeRepository {
-  BikeRepositoryFirebase({FirebaseDatabase? database, FirebaseApp? app})
-    : _database =
-          database ??
-          FirebaseDatabase.instanceFor(
-            app: app ?? Firebase.app(),
-            databaseURL: FirebaseDatabaseConfig.databaseUrl,
-          );
+  BikeRepositoryFirebase({http.Client? client}) : _client = client ?? http.Client();
 
-  final FirebaseDatabase _database;
+  final http.Client _client;
 
   @override
   Future<List<Bike>> fetchBikes() async {
-    final DataSnapshot snapshot = await _database.ref('bikes').get();
-    if (!snapshot.exists || snapshot.value == null) {
+    final Uri uri = FirebaseDatabaseConfig.nodeUri('bikes');
+    final http.Response response = await _client.get(
+      uri,
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception(
+        'Failed to load bikes (HTTP ${response.statusCode}). '
+        'Check Realtime Database rules and endpoint: $uri',
+      );
+    }
+
+    if (response.body == 'null') {
       return <Bike>[];
     }
 
     final Map<String, dynamic> data = Map<String, dynamic>.from(
-      snapshot.value! as Map,
+      json.decode(response.body) as Map,
     );
 
     return data.values
@@ -40,13 +46,24 @@ class BikeRepositoryFirebase implements BikeRepository {
 
   @override
   Future<Bike?> fetchBikeById(String id) async {
-    final DataSnapshot snapshot = await _database.ref('bikes/$id').get();
-    if (!snapshot.exists || snapshot.value == null) {
+    final Uri uri = FirebaseDatabaseConfig.nodeUri('bikes/$id');
+    final http.Response response = await _client.get(
+      uri,
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception(
+        'Failed to load bike $id (HTTP ${response.statusCode}). '
+        'Check Realtime Database rules and endpoint: $uri',
+      );
+    }
+
+    if (response.body == 'null') {
       return null;
     }
 
     final Map<String, dynamic> bikeJson = Map<String, dynamic>.from(
-      snapshot.value! as Map,
+      json.decode(response.body) as Map,
     );
 
     return BikeDTO.fromJson(bikeJson).toModel();
@@ -54,13 +71,24 @@ class BikeRepositoryFirebase implements BikeRepository {
 
   @override
   Future<List<BikeSlot>> fetchBikeSlots() async {
-    final DataSnapshot snapshot = await _database.ref('stations').get();
-    if (!snapshot.exists || snapshot.value == null) {
+    final Uri uri = FirebaseDatabaseConfig.nodeUri('stations');
+    final http.Response response = await _client.get(
+      uri,
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception(
+        'Failed to load bike slots (HTTP ${response.statusCode}). '
+        'Check Realtime Database rules and endpoint: $uri',
+      );
+    }
+
+    if (response.body == 'null') {
       return <BikeSlot>[];
     }
 
     final Map<String, dynamic> stationsData = Map<String, dynamic>.from(
-      snapshot.value! as Map,
+      json.decode(response.body) as Map,
     );
 
     final List<BikeSlot> slots = <BikeSlot>[];

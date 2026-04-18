@@ -1,30 +1,36 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
 import 'package:velo_toulouse/data/dtos/station_dto.dart';
 import 'package:velo_toulouse/data/repositories/firebase_database_config.dart';
 import 'package:velo_toulouse/data/repositories/station/station_repository.dart';
 import 'package:velo_toulouse/model/station.dart';
 
 class StationRepositoryFirebase implements StationRepository {
-  StationRepositoryFirebase({FirebaseDatabase? database})
-    : _database =
-          database ??
-          FirebaseDatabase.instanceFor(
-            app: Firebase.app(),
-            databaseURL: FirebaseDatabaseConfig.databaseUrl,
-          );
+  StationRepositoryFirebase({http.Client? client}) : _client = client ?? http.Client();
 
-  final FirebaseDatabase _database;
+  final http.Client _client;
 
   @override
   Future<List<Station>> fetchStations() async {
-    final DataSnapshot snapshot = await _database.ref('stations').get();
-    if (!snapshot.exists || snapshot.value == null) {
+    final Uri uri = FirebaseDatabaseConfig.nodeUri('stations');
+    final http.Response response = await _client.get(
+      uri,
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception(
+        'Failed to load stations (HTTP ${response.statusCode}). '
+        'Check Realtime Database rules for read access and endpoint: $uri',
+      );
+    }
+
+    if (response.body == 'null') {
       return <Station>[];
     }
 
     final Map<String, dynamic> data = Map<String, dynamic>.from(
-      snapshot.value! as Map,
+      json.decode(response.body) as Map,
     );
 
     return data.values
@@ -34,12 +40,23 @@ class StationRepositoryFirebase implements StationRepository {
 
   @override
   Future<Station?> fetchStationById(String id) async {
-    final DataSnapshot snapshot = await _database.ref('stations/$id').get();
-    if (!snapshot.exists || snapshot.value == null) {
+    final Uri uri = FirebaseDatabaseConfig.nodeUri('stations/$id');
+    final http.Response response = await _client.get(
+      uri,
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception(
+        'Failed to load station $id (HTTP ${response.statusCode}). '
+        'Check Realtime Database rules for read access and endpoint: $uri',
+      );
+    }
+
+    if (response.body == 'null') {
       return null;
     }
 
-    return _mapStationFromRealtime(snapshot.value);
+    return _mapStationFromRealtime(json.decode(response.body));
   }
 
   Station _mapStationFromRealtime(dynamic stationRaw) {
