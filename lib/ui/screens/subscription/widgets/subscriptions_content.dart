@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:velo_toulouse/model/subscription.dart';
 import 'package:velo_toulouse/ui/screens/subscription/view_model/subscriptions_view_model.dart';
 import 'package:velo_toulouse/ui/screens/payment_method/payment_method_screen.dart';
+import 'package:velo_toulouse/ui/states/subscription_state.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
 
 class SubscriptionsContent extends StatelessWidget {
@@ -10,11 +12,17 @@ class SubscriptionsContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final subscriptionsViewModel = context.watch<SubscriptionsViewModel>();
+    final subscriptionState = context.watch<SubscriptionState>();
 
-    return _buildBody(context, subscriptionsViewModel);
+    return _buildBody(context, subscriptionsViewModel, subscriptionState);
   }
 
-  Widget _buildBody(BuildContext context, SubscriptionsViewModel viewModel) {
+  Widget _buildBody(
+    BuildContext context,
+    SubscriptionsViewModel viewModel,
+    SubscriptionState subscriptionState,
+  ) {
+    final Subscription? selectedPlan = viewModel.selectedPlan;
     switch (viewModel.status) {
       case SubscriptionsStatus.loading:
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
@@ -87,17 +95,25 @@ class SubscriptionsContent extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 28),
                 sliver: SliverList(
                   delegate: SliverChildListDelegate.fixed([
-                    const _SubscriptionSummaryCard(
-                      activePlanId: '',
-                      activeLabel: 'No active pass',
+                    _SubscriptionSummaryCard(
+                      activePlanId: subscriptionState.activeSubscription?.plan.id ?? '',
+                      activeLabel: subscriptionState.hasActiveSubscription
+                          ? subscriptionState.activeSubscription!.plan.label
+                          : selectedPlan?.label ?? 'No active pass selected',
+                      activeSubtitle: subscriptionState.hasActiveSubscription
+                          ? 'Valid until ${subscriptionState.activeSubscription!.expirationDate.toLocal().toString().split('.').first}'
+                          : selectedPlan != null
+                              ? 'You selected ${selectedPlan.label}. Continue to payment to activate it.'
+                              : 'Select a pass below to unlock bikes.',
                     ),
                     const SizedBox(height: 18),
                     ...(viewModel.plans
                         .map(
                           (plan) => _PlanCard(
                             plan: plan,
-                            isActive: false,
+                            isActive: viewModel.selectedPlanId == plan.id,
                             onSelect: () {
+                              viewModel.selectPlan(plan);
                               Navigator.of(context).push(
                                 MaterialPageRoute(
                                   builder: (_) =>
@@ -121,10 +137,12 @@ class SubscriptionsContent extends StatelessWidget {
 class _SubscriptionSummaryCard extends StatelessWidget {
   final String activePlanId;
   final String activeLabel;
+  final String activeSubtitle;
 
   const _SubscriptionSummaryCard({
     required this.activePlanId,
     required this.activeLabel,
+    required this.activeSubtitle,
   });
 
   @override
@@ -143,7 +161,7 @@ class _SubscriptionSummaryCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Active Pass',
+            'Pass Status',
             style: TextStyle(
               color: AppTheme.textSecondary,
               fontSize: 11,
@@ -158,6 +176,15 @@ class _SubscriptionSummaryCard extends StatelessWidget {
               color: AppTheme.textPrimary,
               fontSize: 18,
               fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            activeSubtitle,
+            style: const TextStyle(
+              color: AppTheme.textSecondary,
+              fontSize: 13,
+              height: 1.4,
             ),
           ),
           if (hasActivePlan) ...[

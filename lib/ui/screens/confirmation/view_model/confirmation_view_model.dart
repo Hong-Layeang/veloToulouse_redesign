@@ -13,6 +13,10 @@ class ConfirmationViewModel extends ChangeNotifier {
     required this.rideState,
   });
 
+  String get title => '${plan.label} Unlocked';
+
+  String get subtitle => 'Your ${plan.label.toLowerCase()} is now active and ready to use.';
+
   // Handle finish button press
   void finish() {
     rideState.endRide();

@@ -37,10 +37,31 @@ class SubscriptionsViewModel extends ChangeNotifier {
   SubscriptionsStatus _status = SubscriptionsStatus.success;
   List<Subscription> _plans = availablePlans;
   String? _errorMessage;
+  String? _selectedPlanId;
 
   SubscriptionsStatus get status => _status;
   List<Subscription> get plans => _plans;
   String? get errorMessage => _errorMessage;
+  String? get selectedPlanId => _selectedPlanId;
+
+  void selectPlan(Subscription plan) {
+    _selectedPlanId = plan.id;
+    notifyListeners();
+  }
+
+  Subscription? get selectedPlan {
+    if (_selectedPlanId == null) {
+      return null;
+    }
+
+    for (final Subscription plan in _plans) {
+      if (plan.id == _selectedPlanId) {
+        return plan;
+      }
+    }
+
+    return null;
+  }
 
   SubscriptionsViewModel({required this.subscriptionRepository}) {
     _init();

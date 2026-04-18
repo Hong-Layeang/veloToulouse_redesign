@@ -61,6 +61,10 @@ class RideState extends ChangeNotifier {
     notifyListeners();
   }
 
+  Duration get currentRideDuration {
+    return _currentRide?.elapsedTime ?? Duration.zero;
+  }
+
   @override
   void dispose() {
     _stopTicker();

@@ -38,8 +38,8 @@ class ConfirmationContent extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 32),
-            const Text(
-              'Bike Unlocked',
+            Text(
+              viewModel.title,
               style: TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.w700,
@@ -47,8 +47,8 @@ class ConfirmationContent extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            const Text(
-              'Enjoy your ride!!',
+            Text(
+              viewModel.subtitle,
               style: TextStyle(
                 fontSize: 16,
                 color: AppTheme.textSecondary,

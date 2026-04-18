@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:velo_toulouse/ui/screens/home/view_model/home_view_model.dart';
 import 'package:velo_toulouse/ui/screens/home/widgets/map_view.dart';
 import 'package:velo_toulouse/ui/screens/subscription/subscriptions_screen.dart';
+import 'package:velo_toulouse/ui/screens/ride_end/ride_end_screen.dart';
 import 'package:velo_toulouse/ui/states/ride_state.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
 
@@ -96,7 +97,15 @@ class HomeContent extends StatelessWidget {
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: () => rideState.endRide(),
+                      onPressed: () {
+                        final Duration duration = rideState.currentRideDuration;
+                        rideState.endRide();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => RideEndScreen(duration: duration),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
                         foregroundColor: AppTheme.primary,
