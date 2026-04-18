@@ -7,7 +7,12 @@ import 'package:velo_toulouse/ui/screens/confirmation/confirmation_screen.dart';
 import 'package:velo_toulouse/ui/theme/app_theme.dart';
 
 class PaymentMethodContent extends StatelessWidget {
-  const PaymentMethodContent({super.key});
+  final bool returnToPreviousAfterConfirmation;
+
+  const PaymentMethodContent({
+    super.key,
+    this.returnToPreviousAfterConfirmation = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +82,7 @@ class PaymentMethodContent extends StatelessWidget {
                         );
 
                         if (confirmed == true && context.mounted) {
-                          if (viewModel.returnToPreviousAfterConfirmation) {
+                          if (returnToPreviousAfterConfirmation) {
                             navigator.pop(true);
                           } else {
                             navigator.popUntil((route) => route.isFirst);

@@ -1,26 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:velo_toulouse/ui/theme/app_theme.dart';
 import 'package:velo_toulouse/model/confirmation_type.dart';
-import '../view_model/confirmation_view_model.dart';
+import 'package:velo_toulouse/model/subscription.dart';
+import 'package:velo_toulouse/ui/theme/app_theme.dart';
 
 class ConfirmationContent extends StatelessWidget {
-  const ConfirmationContent({super.key});
+  final VoidCallback onFinish;
+  final ConfirmationType type;
+  final Subscription? subscription;
+  final String? bikeName;
+  final String? stationName;
+
+  const ConfirmationContent({
+    super.key,
+    required this.onFinish,
+    required this.type,
+    this.subscription,
+    this.bikeName,
+    this.stationName,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.read<ConfirmationViewModel>();
-
-    if (viewModel.type == ConfirmationType.subscription) {
-      return _buildSubscriptionConfirmation(context, viewModel);
-    } else {
-      return _buildBikeRentalConfirmation(context, viewModel);
+    if (type == ConfirmationType.subscription) {
+      return _buildSubscriptionConfirmation();
     }
+    return _buildBikeRentalConfirmation();
   }
 
-  Widget _buildSubscriptionConfirmation(BuildContext context, ConfirmationViewModel viewModel) {
-    final subscription = viewModel.subscription;
-    if (subscription == null) {
+  Widget _buildSubscriptionConfirmation() {
+    final activeSubscription = subscription;
+    if (activeSubscription == null) {
       return const Scaffold(
         body: Center(child: Text('No subscription found')),
       );
@@ -49,7 +58,7 @@ class ConfirmationContent extends StatelessWidget {
             const SizedBox(height: 24),
             const Text(
               'Subscription Confirmed',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w700,
                 color: AppTheme.textPrimary,
@@ -57,9 +66,9 @@ class ConfirmationContent extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              '${subscription.label} is now active.',
+              '${activeSubscription.label} is now active.',
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 15,
                 color: AppTheme.textSecondary,
               ),
@@ -71,7 +80,7 @@ class ConfirmationContent extends StatelessWidget {
                 width: double.infinity,
                 height: 52,
                 child: ElevatedButton(
-                  onPressed: () => viewModel.finish(),
+                  onPressed: onFinish,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppTheme.primary,
                     foregroundColor: Colors.white,
@@ -94,9 +103,9 @@ class ConfirmationContent extends StatelessWidget {
     );
   }
 
-  Widget _buildBikeRentalConfirmation(BuildContext context, ConfirmationViewModel viewModel) {
-    final bikeName = viewModel.bikeName ?? 'Bike';
-    final stationName = viewModel.stationName ?? 'Station';
+  Widget _buildBikeRentalConfirmation() {
+    final resolvedBikeName = bikeName ?? 'Bike';
+    final resolvedStationName = stationName ?? 'Station';
 
     return Scaffold(
       body: Padding(
@@ -129,9 +138,9 @@ class ConfirmationContent extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              '$bikeName at $stationName is ready.',
+              '$resolvedBikeName at $resolvedStationName is ready.',
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 15,
                 color: AppTheme.textSecondary,
               ),
@@ -143,7 +152,7 @@ class ConfirmationContent extends StatelessWidget {
                 width: double.infinity,
                 height: 52,
                 child: ElevatedButton(
-                  onPressed: () => viewModel.finish(),
+                  onPressed: onFinish,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppTheme.primary,
                     foregroundColor: Colors.white,

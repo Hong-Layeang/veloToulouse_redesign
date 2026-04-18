@@ -23,9 +23,10 @@ class PaymentMethodScreen extends StatelessWidget {
         plan: plan,
         subscriptionRepository: context.read<SubscriptionRepository>(),
         subscriptionState: context.read<SubscriptionState>(),
+      ),
+      child: PaymentMethodContent(
         returnToPreviousAfterConfirmation: returnToPreviousAfterConfirmation,
       ),
-      child: const PaymentMethodContent(),
     );
   }
 }

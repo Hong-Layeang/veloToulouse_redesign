@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:velo_toulouse/model/subscription.dart';
 import 'package:velo_toulouse/model/confirmation_type.dart';
-import 'view_model/confirmation_view_model.dart';
 import 'widgets/confirmation_content.dart';
 
 class ConfirmationScreen extends StatelessWidget {
@@ -23,15 +21,12 @@ class ConfirmationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider<ConfirmationViewModel>(
-      create: (context) => ConfirmationViewModel(
-        onFinish: onFinish,
-        type: type,
-        subscription: subscription,
-        bikeName: bikeName,
-        stationName: stationName,
-      ),
-      child: const ConfirmationContent(),
+    return ConfirmationContent(
+      onFinish: onFinish,
+      type: type,
+      subscription: subscription,
+      bikeName: bikeName,
+      stationName: stationName,
     );
   }
 }
